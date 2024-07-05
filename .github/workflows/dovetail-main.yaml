@@ -57,6 +57,7 @@ jobs:
 
       - name: "Build Site"
         run: |
+          renv::install("joelnitta/dovetail")
           reset <- "${{ github.event.inputs.reset }}" == "true"
           sandpaper::package_cache_trigger(TRUE)
           dovetail::render_trans_from_dir(lang = "es", preview = FALSE)
