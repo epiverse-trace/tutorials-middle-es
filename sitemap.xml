@@ -10,6 +10,9 @@
     <loc>https://epiverse-trace.github.io/tutorials-middle/LICENSE.html</loc>
   </url>
   <url>
+    <loc>https://epiverse-trace.github.io/tutorials-middle/aio.html</loc>
+  </url>
+  <url>
     <loc>https://epiverse-trace.github.io/tutorials-middle/create-forecast.html</loc>
   </url>
   <url>
@@ -17,6 +20,9 @@
   </url>
   <url>
     <loc>https://epiverse-trace.github.io/tutorials-middle/delays-functions.html</loc>
+  </url>
+  <url>
+    <loc>https://epiverse-trace.github.io/tutorials-middle/images.html</loc>
   </url>
   <url>
     <loc>https://epiverse-trace.github.io/tutorials-middle/index.html</loc>
@@ -31,6 +37,9 @@
     <loc>https://epiverse-trace.github.io/tutorials-middle/instructor/LICENSE.html</loc>
   </url>
   <url>
+    <loc>https://epiverse-trace.github.io/tutorials-middle/instructor/aio.html</loc>
+  </url>
+  <url>
     <loc>https://epiverse-trace.github.io/tutorials-middle/instructor/create-forecast.html</loc>
   </url>
   <url>
@@ -40,7 +49,16 @@
     <loc>https://epiverse-trace.github.io/tutorials-middle/instructor/delays-functions.html</loc>
   </url>
   <url>
+    <loc>https://epiverse-trace.github.io/tutorials-middle/instructor/images.html</loc>
+  </url>
+  <url>
     <loc>https://epiverse-trace.github.io/tutorials-middle/instructor/index.html</loc>
+  </url>
+  <url>
+    <loc>https://epiverse-trace.github.io/tutorials-middle/instructor/instructor-notes.html</loc>
+  </url>
+  <url>
+    <loc>https://epiverse-trace.github.io/tutorials-middle/instructor/key-points.html</loc>
   </url>
   <url>
     <loc>https://epiverse-trace.github.io/tutorials-middle/instructor/profiles.html</loc>
@@ -59,6 +77,12 @@
   </url>
   <url>
     <loc>https://epiverse-trace.github.io/tutorials-middle/instructor/superspreading-simulate.html</loc>
+  </url>
+  <url>
+    <loc>https://epiverse-trace.github.io/tutorials-middle/instructor-notes.html</loc>
+  </url>
+  <url>
+    <loc>https://epiverse-trace.github.io/tutorials-middle/key-points.html</loc>
   </url>
   <url>
     <loc>https://epiverse-trace.github.io/tutorials-middle/network.html</loc>
