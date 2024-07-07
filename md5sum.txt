@@ -10,6 +10,6 @@
 "episodes/severity-static.Rmd" "e486a4739e828c8796b2b76970793367" "site/built/severity-static.md" "2024-07-06"
 "instructors/instructor-notes.md" "ca3834a1b0f9e70c4702aa7a367a6bb5" "site/built/instructor-notes.md" "2024-07-06"
 "learners/reference.md" "18f9dcee553dc88dba8caf6436f8ca41" "site/built/reference.md" "2024-07-06"
-"learners/setup.md" "176479c33780a1ae38543fa91041a8cf" "site/built/setup.md" "2024-07-07"
+"learners/setup.md" "97b046002ababbb4fa478baf7c3e1fc9" "site/built/setup.md" "2024-07-07"
 "profiles/learner-profiles.md" "31b503c4b5bd1f0960ada730eca4a25e" "site/built/learner-profiles.md" "2024-07-06"
 "renv/profiles/lesson-requirements/renv.lock" "064fa98cee13cce13ccc73383282e4b0" "site/built/renv.lock" "2024-07-06"
