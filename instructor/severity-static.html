@@ -199,9 +199,9 @@
         <ul><li><a href="#introducci%C3%B3n">Introducción</a></li>
 <li><a href="#fuentes-de-datos-para-la-gravedad-cl%C3%ADnica">Fuentes de datos para la gravedad clínica</a></li>
 <li><a href="#cfr-no-ajustado">CFR no ajustado</a></li>
-<li><a href="#sesgos-que-afectan-a-la-estimaci%C3%B3n-de-la-tl">Sesgos que afectan a la estimación de la TL</a></li>
-<li><a href="#cfr-ajustada-al-retraso-temporal">CFR ajustada al retraso temporal</a></li>
-<li><a href="#estimaci%C3%B3n-temprana-de-la-tl">Estimación temprana de la TL</a></li>
+<li><a href="#sesgos-que-afectan-a-la-estimaci%C3%B3n-de-el-cfr">Sesgos que afectan a la estimación de el CFR</a></li>
+<li><a href="#cfr-ajustado-al-retraso-temporal">CFR ajustado al retraso temporal</a></li>
+<li><a href="#estimaci%C3%B3n-temprana-de-el-cfr">Estimación temprana de el CFR</a></li>
 <li><a href="#desaf%C3%ADos">Desafíos</a></li>
 <li><a href="#ap%C3%A9ndice">Apéndice</a></li>
         </ul></div><!--/div.accordion-body-->
@@ -379,9 +379,9 @@ et al., 2009</a>)</div>
 <div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
 <div class="accordion-body">
 <p>Los periodos de tiempo son relevantes: Periodo 1 – 15 días en los que
-la CFR es cero para indicar que no se han notificado muertes; Periodo
-del 15 de marzo – 26 de abril en el que la CFR parece aumentar; Periodo
-del 30 de abril – 30 de mayo en el que la estimación de la CFR se
+el CFR es cero para indicar que no se han notificado muertes; Periodo
+del 15 de marzo – 26 de abril en el que el CFR parece aumentar; Periodo
+del 30 de abril – 30 de mayo en el que la estimación de el CFR se
 estabiliza.</p>
 </div>
 </div>
@@ -471,12 +471,12 @@ al <em>CFR sesgado</em> (<span class="math inline">\(b_{t}\)</span>):</p>
 <p><span class="math display">\[ b_{t} =  \frac{D_{t}}{C_{t}}
 \]</span></p>
 <p>Este cálculo es <em>sesgado</em> porque genera una subestimación de
-la CFR real, debido al retraso temporal desde el inicio de los síntomas
+el CFR real, debido al retraso temporal desde el inicio de los síntomas
 hasta la muerte, que sólo se estabiliza en las últimas fases del
 brote.</p>
 <!-- ¿añadir aquí la llamada sobre ratio o riesgo?  -->
 <!-- https://github.com/epiverse-trace/cfr/issues/130 -->
-<p>Para calcular la CFR de forma directa y sin ajustar el retraso
+<p>Para calcular el CFR de forma directa y sin ajustar el retraso
 temporal entre la aparición de síntomas y la muerte del paciente
 (conocida como probabilidad de muerte “naive”), el paquete
 <a href="https://github.com/epiverse-trace/cfr" class="external-link">cfr</a> requiere un una base de datos (dataframe) que
@@ -656,14 +656,14 @@ por <code>cfr_static()</code>.</p>
 </div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="sesgos-que-afectan-a-la-estimación-de-la-tl">Sesgos que afectan a la estimación de la TL<a class="anchor" aria-label="anclaje" href="#sesgos-que-afectan-a-la-estimaci%C3%B3n-de-la-tl"></a>
-<a class="anchor" aria-label="anchor" href="#sesgos-que-afectan-a-la-estimaci%C3%B3n-de-la-tl"></a></h2>
-<hr class="half-width"><div id="dos-sesgos-que-afectan-a-la-estimación-de-la-tl" class="callout discussion">
+</section><section><h2 class="section-heading" id="sesgos-que-afectan-a-la-estimación-de-el-cfr">Sesgos que afectan a la estimación de el CFR<a class="anchor" aria-label="anclaje" href="#sesgos-que-afectan-a-la-estimaci%C3%B3n-de-el-cfr"></a>
+<a class="anchor" aria-label="anchor" href="#sesgos-que-afectan-a-la-estimaci%C3%B3n-de-el-cfr"></a></h2>
+<hr class="half-width"><div id="dos-sesgos-que-afectan-a-la-estimación-de-el-cfr" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
-<div id="dos-sesgos-que-afectan-a-la-estimación-de-la-tl" class="callout-inner">
-<h3 class="callout-title">Dos sesgos que afectan a la estimación de la TL<a class="anchor" aria-label="anclaje" href="#dos-sesgos-que-afectan-a-la-estimaci%C3%B3n-de-la-tl"></a>
+<div id="dos-sesgos-que-afectan-a-la-estimación-de-el-cfr" class="callout-inner">
+<h3 class="callout-title">Dos sesgos que afectan a la estimación de el CFR<a class="anchor" aria-label="anclaje" href="#dos-sesgos-que-afectan-a-la-estimaci%C3%B3n-de-el-cfr"></a>
 </h3>
 <div class="callout-content">
 <p><a href="https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0003846" class="external-link">Lipsitch
@@ -685,7 +685,7 @@ reconocidos y notificados a las autoridades de salud pública y se
 registran en las bases de datos de vigilancia, ya que las personas con
 síntomas graves son las que suelen buscar atención médica y acuden al
 centro de salud/hospital.</p>
-<p>Por lo tanto, la CFR será normalmente más elevada entre <em>los casos
+<p>Por lo tanto, el CFR será normalmente más elevada entre <em>los casos
 detectados</em> que entre toda la población de casos, dado que esta
 última puede incluir individuos con presentaciones leves, subclínicas, y
 (según algunas definiciones de “caso”) asintomáticas.</p>
@@ -707,7 +707,7 @@ en tiempo real incluye a personas que morirán a causa de la enfermedad
 en el futuro, pero que aún siguen vivas, o que han muerto, pero cuya
 muerte no se ha notificado aún. Así pues, dividir el número acumulado de
 muertes notificadas por el número acumulado de casos notificados en un
-momento concreto durante un brote epidémico subestimará la CFR
+momento concreto durante un brote epidémico subestimará el CFR
 verdadera.</p>
 <p>Los determinantes clave de la magnitud del sesgo son la <em>tasa de
 crecimiento</em> de la epidemia y la <em>distribución</em> del intervalo
@@ -764,8 +764,8 @@ descrito en esta viñeta del paquete<code>{cfr}</code></a>.</p>
 </div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="cfr-ajustada-al-retraso-temporal">CFR ajustada al retraso temporal<a class="anchor" aria-label="anclaje" href="#cfr-ajustada-al-retraso-temporal"></a>
-<a class="anchor" aria-label="anchor" href="#cfr-ajustada-al-retraso-temporal"></a></h2>
+</section><section><h2 class="section-heading" id="cfr-ajustado-al-retraso-temporal">CFR ajustado al retraso temporal<a class="anchor" aria-label="anclaje" href="#cfr-ajustado-al-retraso-temporal"></a>
+<a class="anchor" aria-label="anchor" href="#cfr-ajustado-al-retraso-temporal"></a></h2>
 <hr class="half-width"><p><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0006852" class="external-link">Nishiura
 et al, 2009</a> desarrollaron un método que tiene en cuenta la
 <strong>distribución temporal</strong> desde el inicio de los síntomas
@@ -795,7 +795,7 @@ a distribuciones temporales epidemiológicas</a>.</p>
 <span><span class="co"># Plot &lt;epidist&gt; object</span></span>
 <span><span class="fu">plot</span><span class="op">(</span><span class="va">onset_to_death_ebola</span>, day_range <span class="op">=</span> <span class="fl">0</span><span class="op">:</span><span class="fl">40</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="../fig/severity-static-rendered-unnamed-chunk-9-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Para calcular la CFR ajustada, podemos utilizar la función
+<figure><img src="../fig/severity-static-rendered-unnamed-chunk-9-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Para calcular el CFR ajustado, podemos utilizar la función
 <code>cfr_static()</code>, a través del argumento
 <code>delay_density</code>.</p>
 <div class="codewrapper sourceCode" id="cb12">
@@ -860,9 +860,9 @@ introducción al trabajo con distribuciones temporales</a>.</p></li>
 </h3>
 <div class="callout-content">
 <p>Utiliza el mismo archivo del reto anterior (<a href="../data/sarscov2_cases_deaths.csv">sarscov2_casos_muertes.csv</a>).</p>
-<p>Estima la CFR ajustada al retraso temporal utilizando la distribución
+<p>Estima el CFR ajustado al retraso temporal utilizando la distribución
 apropiada y</p>
-<ul><li>¡Compara los valores de la CFR ajustada y sin ajuste temporal!</li>
+<ul><li>¡Compara los valores de el CFR ajustado y sin ajuste temporal!</li>
 </ul></div>
 </div>
 </div>
@@ -1026,17 +1026,17 @@ temporal</strong> entre el inicio de síntomas y la muerte, y</li>
 subestimación de los resultados conocidos.</li>
 </ul><p><span class="math inline">\(u_{t}\)</span> se utiliza para
 <strong>escalar</strong> el valor del número acumulado de casos en el
-denominador en el cálculo de la TL. Se calcula internamente con la
+denominador en el cálculo de el CFR. Se calcula internamente con la
 función <a href="https://epiverse-trace.github.io/cfr/reference/estimate_outcomes.html" class="external-link"><code>estimate_outcomes()</code></a></p>
 <p>El estimador para la probabilidad de muerte puede expresarse
 como:</p>
 <p><span class="math display">\[p_{t} = \frac{b_{t}}{u_{t}}\]</span></p>
 <p>donde <span class="math inline">\(p_{t}\)</span> es la proporción
-realizada de casos confirmados que morirán a causa de la infección (o la
+realizada de casos confirmados que morirán a causa de la infección (o el
 CFR real), y <span class="math inline">\(b_{t}\)</span> es la estimación
-cruda y sesgada de la TL.</p>
-<p>A partir de esta última ecuación, observamos que la CFR no sesgada
-<span class="math inline">\(p_{t}\)</span> es mayor que la CFR sesgada
+cruda y sesgada de el CFR.</p>
+<p>A partir de esta última ecuación, observamos que el CFR no sesgada
+<span class="math inline">\(p_{t}\)</span> es mayor que el CFR sesgada
 <span class="math inline">\(b_{t}\)</span> porque en <span class="math inline">\(u_{t}\)</span> el numerador es menor que el
 denominador (observa que <span class="math inline">\(f_{t}\)</span> es
 la distribución de probabilidad del <em>retraso temporal</em> entre
@@ -1049,18 +1049,18 @@ et al., 2009</a>).</p>
 </div>
 </div>
 </div>
-</section><section><h2 class="section-heading" id="estimación-temprana-de-la-tl">Estimación temprana de la TL<a class="anchor" aria-label="anclaje" href="#estimaci%C3%B3n-temprana-de-la-tl"></a>
-<a class="anchor" aria-label="anchor" href="#estimaci%C3%B3n-temprana-de-la-tl"></a></h2>
+</section><section><h2 class="section-heading" id="estimación-temprana-de-el-cfr">Estimación temprana de el CFR<a class="anchor" aria-label="anclaje" href="#estimaci%C3%B3n-temprana-de-el-cfr"></a>
+<a class="anchor" aria-label="anchor" href="#estimaci%C3%B3n-temprana-de-el-cfr"></a></h2>
 <hr class="half-width"><p>En el reto anterior, descubrimos que el valor de la probabilidad de
 muerte ajustada y no ajustada son diferentes.</p>
 <p>La CFR sin ajustar es útil para obtener una estimación global de la
 gravedad del brote. Una vez que el brote haya finalizado o haya
-progresado de forma que se notifiquen más muertes, la CFR estimada es
-entonces <em>más cercana a</em> la CFR “verdadera” o no sesgada.</p>
-<p>Por otra parte, la CFR <strong>ajustada</strong> puede ser utilizada
+progresado de forma que se notifiquen más muertes, el CFR estimada es
+entonces <em>más cercana a</em> el CFR “verdadera” o no sesgada.</p>
+<p>Por otra parte, el CFR <strong>ajustada</strong> puede ser utilizada
 para estimar la gravedad de una enfermedad infecciosa emergente de una
 forma más temprana durante una epidemia.</p>
-<p>Podemos explorar la <em>CFR ajustada al retraso temporal</em> de
+<p>Podemos explorar la <em>CFR ajustado al retraso temporal</em> de
 forma temprana utilizando la función <code>cfr_rolling()</code></p>
 <div id="callout3" class="callout">
 <div class="callout-square">
@@ -1071,7 +1071,7 @@ forma temprana utilizando la función <code>cfr_rolling()</code></p>
 </h3>
 <div class="callout-content">
 <p><code>cfr_rolling()</code> es una función que calcula automáticamente
-la CFR en cada día del brote con los datos disponibles hasta ese día, lo
+el CFR en cada día del brote con los datos disponibles hasta ese día, lo
 que ahorra tiempo al usuario, ya que no hace falta calcular este
 parámetro manualmente para cada momento.</p>
 </div>
@@ -1146,10 +1146,10 @@ parámetro manualmente para cada momento.</p>
 73 1976-11-05            0.9818       0.8843        0.9913</code></pre>
 </div>
 <p>Con <code>utils::tail()</code> mostramos como los últimos valores
-estimados de la CFR ajustada y sin ajustar tienen rangos superpuestos de
+estimados de el CFR ajustado y sin ajustar tienen rangos superpuestos de
 intervalos de confianza del 95%.</p>
 <p>Ahora, visualicemos ambos resultados en una serie temporal. ¿Cómo se
-comportarían en tiempo real las estimaciones de CFR ajustadas y sin
+comportarían en tiempo real las estimaciones de CFR ajustados y sin
 ajustar?</p>
 <div class="codewrapper sourceCode" id="cb32">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1196,7 +1196,7 @@ ajustar?</p>
 <span>    lty <span class="op">=</span> <span class="fl">2</span></span>
 <span>  <span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="../fig/severity-static-rendered-unnamed-chunk-19-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>La línea horizontal representa la CFR ajustada al retraso temporal,
+<figure><img src="../fig/severity-static-rendered-unnamed-chunk-19-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>La línea horizontal representa el CFR ajustado al retraso temporal,
 estimada al final del brote. La línea punteada significa que la
 estimación tiene un intervalo de confianza del 95% (IC 95%).</p>
 <p><strong>Observa</strong> que este cálculo ajustado al retraso
@@ -1229,10 +1229,10 @@ et al., 2009</a>)</div>
 </figure><p>No obstante, incluso utilizando únicamente los datos observados para
 el periodo comprendido entre el 19 de marzo y el 2 de abril,
 <code>cfr_static()</code> puede obtener una predicción adecuada (Figura
-D), por ejemplo, la CFR ajustada al retraso en el 27 de marzo es del
+D), por ejemplo, el CFR ajustado al retraso en el 27 de marzo es del
 18,1% (IC del 95%: 10,5, 28,1). Se observa una sobreestimación en las
 fases muy tempranas de la epidemia, pero los límites de confianza del
-95% en las fases posteriores incluyen la CFR realizado (es decir, 17,2
+95% en las fases posteriores incluyen el CFR realizado (es decir, 17,2
 %).</p>
 <figure><img src="../fig/cfr-pone.0006852.g003-fig_d.png" alt="Determinación temprana del riesgo de muerte confirmada ajustado al retraso del síndrome respiratorio agudo grave (SRAS) en Hong Kong, 2003. (Nishiura et al., 2009)" class="figure mx-auto d-block"><div class="figcaption">Determinación temprana del riesgo de muerte
 confirmada ajustado al retraso del síndrome respiratorio agudo grave
@@ -1242,22 +1242,22 @@ et al., 2009</a>)</div>
 </div>
 </div>
 </div>
-<div id="interpretar-la-estimación-de-la-cfr-en-la-fase-inicial-del-brote" class="callout discussion">
+<div id="interpretar-la-estimación-de-el-cfr-en-la-fase-inicial-del-brote" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
-<div id="interpretar-la-estimación-de-la-cfr-en-la-fase-inicial-del-brote" class="callout-inner">
-<h3 class="callout-title">Interpretar la estimación de la CFR en la fase inicial del brote<a class="anchor" aria-label="anclaje" href="#interpretar-la-estimaci%C3%B3n-de-la-cfr-en-la-fase-inicial-del-brote"></a>
+<div id="interpretar-la-estimación-de-el-cfr-en-la-fase-inicial-del-brote" class="callout-inner">
+<h3 class="callout-title">Interpretar la estimación de el CFR en la fase inicial del brote<a class="anchor" aria-label="anclaje" href="#interpretar-la-estimaci%C3%B3n-de-el-cfr-en-la-fase-inicial-del-brote"></a>
 </h3>
 <div class="callout-content">
 <p>Basándote en la figura anterior:</p>
 <ul><li>¿Cuántos días hay entre el inicio del brote y la fecha en la que el
-intervalo de confianza de la <em>CFR ajustada</em> se cruza con el
+intervalo de confianza de la <em>CFR ajustado</em> se cruza con el
 intervalo de confianza de la <em>CFR sin ajustar</em>? ¿Los intervalos
-se cruzan con la CFR estimada al final del brote?</li>
+se cruzan con el CFR estimada al final del brote?</li>
 </ul><p>Discusión:</p>
 <ul><li>¿Cuáles son las implicaciones para la política de salud pública de
-tener una <em>CFR ajustada por retraso temporal</em>?</li>
+tener una <em>CFR ajustado por retraso temporal</em>?</li>
 </ul></div>
 </div>
 </div>
@@ -1283,8 +1283,8 @@ datos de salida.</p>
 <div class="accordion-body">
 <p>Hay casi un mes de diferencia.</p>
 <p>Nótese que la estimación tiene una incertidumbre considerable al
-principio de la serie temporal. Al cabo de dos semanas, la CFR ajustada
-se aproxima a la estimación global de la CFR al final del brote.</p>
+principio de la serie temporal. Al cabo de dos semanas, el CFR ajustado
+se aproxima a la estimación global de el CFR al final del brote.</p>
 <p>¿Es este patrón similar al de otros brotes? Podemos utilizar los
 conjuntos de datos de los retos de este episodio. ¡Te invitamos a
 averiguarlo!</p>
@@ -1300,12 +1300,12 @@ averiguarlo!</p>
 <h3 class="callout-title">Lista de verificación<a class="anchor" aria-label="anclaje" href="#lista-de-verificaci%C3%B3n"></a>
 </h3>
 <div class="callout-content">
-<p>Con <a href="https://github.com/epiverse-trace/cfr" class="external-link">cfr</a> estimamos la CFR como la proporción de muertes
+<p>Con <a href="https://github.com/epiverse-trace/cfr" class="external-link">cfr</a> estimamos el CFR como la proporción de muertes
 entre <strong>confirmadas</strong> confirmados.</p>
 <p>Utilizando sólo el número de casos <strong>confirmados</strong> está
 claro que se pasarán por alto todos los casos que no busquen tratamiento
 médico o no sean notificados, así como todos los casos asintomáticos.
-Esto significa que la estimación de la CFR es superior a la proporción
+Esto significa que la estimación de el CFR es superior a la proporción
 de muertes entre los infectados.</p>
 </div>
 </div>
@@ -1313,13 +1313,13 @@ de muertes entre los infectados.</p>
 <div id="accordionSolution7" class="accordion challenge-accordion accordion-flush">
 <div class="accordion-item">
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution7" aria-expanded="false" aria-controls="collapseSolution7">
-  <h4 class="accordion-header" id="headingSolution7"> ¿Por qué difieren la CFR sin ajustar y la ajustada al retraso temporal? </h4>
+  <h4 class="accordion-header" id="headingSolution7"> ¿Por qué difieren el CFR sin ajustar y la ajustada al retraso temporal? </h4>
 </button>
 <div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
 <div class="accordion-body">
 <p><a href="https://github.com/epiverse-trace/cfr" class="external-link">cfr</a> tiene como objetivo obtener un estimador insesgado
 “mucho antes” de observar el curso completo del brote. Para ello
-<a href="https://github.com/epiverse-trace/cfr" class="external-link">cfr</a> utiliza el factor de subestimación <span class="math inline">\(u_{t}\)</span> para estimar la CFR sin sesgo <span class="math inline">\(p_{t}\)</span> , utilizando métodos de máxima
+<a href="https://github.com/epiverse-trace/cfr" class="external-link">cfr</a> utiliza el factor de subestimación <span class="math inline">\(u_{t}\)</span> para estimar el CFR sin sesgo <span class="math inline">\(p_{t}\)</span> , utilizando métodos de máxima
 verosimilitud, dado el <em>proceso de muestreo</em> definido por <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0006852" class="external-link">Nishiura
 et al., 2009</a>.</p>
 </div>
@@ -1333,13 +1333,13 @@ et al., 2009</a>.</p>
 </button>
 <div id="collapseSolution8" class="accordion-collapse collapse" data-bs-parent="#accordionSolution8" aria-labelledby="headingSolution8">
 <div class="accordion-body">
-<figure><img src="../fig/cfr-pone.0006852.g001.png" alt="La población de casos confirmados y el proceso de muestreo para estimar la CFR sin sesgo durante el transcurso de un brote. (Nishiura et al., 2009)" class="figure mx-auto d-block"><div class="figcaption">La población de casos confirmados y el proceso
-de muestreo para estimar la CFR sin sesgo durante el transcurso de un
+<figure><img src="../fig/cfr-pone.0006852.g001.png" alt="La población de casos confirmados y el proceso de muestreo para estimar el CFR sin sesgo durante el transcurso de un brote. (Nishiura et al., 2009)" class="figure mx-auto d-block"><div class="figcaption">La población de casos confirmados y el proceso
+de muestreo para estimar el CFR sin sesgo durante el transcurso de un
 brote. (<a href="https://doi.org/10.1371/journal.pone.0006852.g001" class="external-link">Nishiura et
 al., 2009</a>)</div>
 </figure><p>En <em>datos agregados de incidencia</em> en el momento <span class="math inline">\(t\)</span> conocemos el número acumulado de casos
 confirmados y muertes, <span class="math inline">\(C_{t}\)</span> y
-<span class="math inline">\(D_{t}\)</span> y deseamos estimar la CFR sin
+<span class="math inline">\(D_{t}\)</span> y deseamos estimar el CFR sin
 sesgo <span class="math inline">\(\pi\)</span> mediante el factor de
 subestimación <span class="math inline">\(u_{t}\)</span>.</p>
 <p>Si conociéramos el factor de subestimación <span class="math inline">\(u_{t}\)</span> podríamos especificar el tamaño de
@@ -1354,7 +1354,7 @@ independiente de morir, <span class="math inline">\(\pi\)</span> el
 número de muertes, <span class="math inline">\(D_{t}\)</span> es una
 muestra de una distribución binomial con tamaño de muestra <span class="math inline">\(u_{t}C_{t}\)</span> y probabilidad de morir <span class="math inline">\(p_{t}\)</span> = <span class="math inline">\(\pi\)</span>.</p>
 <p>Esto se representa mediante la siguiente función de verosimilitud
-para obtener la estimación de máxima verosimilitud de la CFR sin sesgo
+para obtener la estimación de máxima verosimilitud de el CFR sin sesgo
 <span class="math inline">\(p_{t}\)</span> = <span class="math inline">\(\pi\)</span>:</p>
 <p><span class="math display">\[
 {\sf L}(\pi | C_{t},D_{t},u_{t}) = \log{\dbinom{u_{t}C_{t}}{D_{t}}} +
@@ -1374,7 +1374,7 @@ D_{t} \log{\pi} +
 </button>
 <div id="collapseSolution9" class="accordion-collapse collapse" data-bs-parent="#accordionSolution9" aria-labelledby="headingSolution9">
 <div class="accordion-body">
-<ul><li>La CFR ajustada al retraso temporal no aborda todas las fuentes de
+<ul><li>La CFR ajustado al retraso temporal no aborda todas las fuentes de
 error en los datos, como el infradiagnóstico de individuos
 infectados.</li>
 </ul></div>
@@ -1601,7 +1601,7 @@ de datos de <code>{incidence2}</code></a> del paquete
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># Estima la CFR ajustada a retrasos temporales</span></span>
+<code class="sourceCode R"><span><span class="co"># Estima el CFR ajustado a retrasos temporales</span></span>
 <span><span class="va">mers_incidence</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu">cfr</span><span class="fu">::</span><span class="fu">prepare_data</span><span class="op">(</span></span>
 <span>    cases_variable <span class="op">=</span> <span class="st">"dt_onset"</span>,</span>
@@ -1633,7 +1633,7 @@ los recursos adecuadamente y a comparar distintos regímenes
 asistenciales (<a href="https://royalsocietypublishing.org/doi/10.1098/rstb.2016.0371" class="external-link">Cori
 et al., 2017</a>).</p>
 <p>Utiliza la base de datos <code>cfr::covid_data</code> para estimar
-una CFR ajustada al retraso temporal estratificada por países.</p>
+una CFR ajustado al retraso temporal estratificada por países.</p>
 </div>
 </div>
 </div>
@@ -1759,14 +1759,14 @@ paquete <a href="https://github.com/epiverse-trace/cfr" class="external-link">cf
 <h3 class="callout-title">¿Cuándo utilizar cfr_rolling()?<a class="anchor" aria-label="anclaje" href="#cu%C3%A1ndo-utilizar-cfr_rolling"></a>
 </h3>
 <div class="callout-content">
-<p><strong>cfr_rolling()</strong> muestra la CFR estimada en cada día
+<p><strong>cfr_rolling()</strong> muestra el CFR estimada en cada día
 del brote, dado que los datos futuros sobre casos y muertes no están
 disponibles en ese momento. El valor final de <em>cfr_rolling()</em>
 estimado es idéntico al de <em>cfr_static()</em> con los mismos
 datos.</p>
 <p>Recuerda, como se muestra arriba <em>cfr_rolling()</em> es útil para
-obtener estimaciones de la CFR en las primeras fases y comprobar si la
-estimación de la CFR de un brote se ha estabilizado. Así,
+obtener estimaciones de el CFR en las primeras fases y comprobar si la
+estimación de el CFR de un brote se ha estabilizado. Así,
 <em>cfr_rolling()</em> no es sensible a la duración ni al tamaño de la
 epidemia.</p>
 </div>
@@ -1780,20 +1780,20 @@ epidemia.</p>
 <h3 class="callout-title">¿Cuándo utilizar cfr_time_varying()?<a class="anchor" aria-label="anclaje" href="#cu%C3%A1ndo-utilizar-cfr_time_varying"></a>
 </h3>
 <div class="callout-content">
-<p>Por otra parte, <strong>cfr_time_varying()</strong> calcula la CFR a
-lo largo de una ventana móvil y ayuda a comprender los cambios en la CFR
+<p>Por otra parte, <strong>cfr_time_varying()</strong> calcula el CFR a
+lo largo de una ventana móvil y ayuda a comprender los cambios en el CFR
 debidos a cambios en la epidemia, por ejemplo, debidos a una nueva
 variante o a una mayor inmunidad por vacunación.</p>
 <p>Sin embargo, <em>cfr_time_variying()</em> es sensible a la
 incertidumbre del muestreo. Por tanto, es sensible al tamaño del brote.
 Cuanto mayor sea el número de casos con resultados esperados en un día
-determinado, más estimaciones razonables de la CFR variable en el tiempo
+determinado, más estimaciones razonables de el CFR variable en el tiempo
 obtendremos.</p>
 <p>Por ejemplo, con 100 casos, la estimación del riesgo de mortalidad
 tendrá, a grandes rasgos, un intervalo de confianza del 95% ±10% de la
 estimación media (IC binomial). Por tanto, si tenemos &gt;100 casos con
 resultados esperados <em>en un día determinado</em> podemos obtener
-estimaciones razonables de la CFR variable en el tiempo. Pero si sólo
+estimaciones razonables de el CFR variable en el tiempo. Pero si sólo
 tenemos &gt;100 casos <em>a lo largo de toda la epidemia</em>
 probablemente tengamos que basarnos en <strong>cfr_rolling()</strong>
 que utiliza los datos acumulados.</p>
@@ -1905,11 +1905,11 @@ respuesta.</li>
 </h3>
 <div class="callout-content">
 <ul><li><p>Utiliza <a href="https://github.com/epiverse-trace/cfr" class="external-link">cfr</a> para estimar la gravedad</p></li>
-<li><p>Utiliza <code>cfr_static()</code> para estimar la CFR global con
+<li><p>Utiliza <code>cfr_static()</code> para estimar el CFR global con
 los últimos datos disponibles.</p></li>
-<li><p>Utiliza <code>cfr_rolling()</code> para mostrar cuál sería la CFR
+<li><p>Utiliza <code>cfr_rolling()</code> para mostrar cuál sería el CFR
 estimada en cada día del brote.</p></li>
-<li><p>Utiliza la <code>delay_density</code> para ajustar la CFR según
+<li><p>Utiliza la <code>delay_density</code> para ajustar el CFR según
 la distribución de retrasos correspondiente.</p></li>
 </ul></div>
 </div>
