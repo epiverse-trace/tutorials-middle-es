@@ -10,17 +10,17 @@ editor_options:
 
 - ¿Por qué estimamos la gravedad clínica de una epidemia?
 
-- ¿Cómo se puede estimar el tasa de letalidad (TL o CFR por sus siglas en inglés: _Case Fatality Risk_) al principio de una epidemia en curso?
+- ¿Cómo se puede estimar la probabilidad de muerte (CFR por sus siglas en inglés: _Case Fatality Risk_) al principio de una epidemia en curso?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: objectives
 
-- Estimar la tasa de letalidad a partir de datos de casos agregados utilizando el paquete `{cfr}`, llamado así dado que tasa de letalidad se conoce como *case fatality risk* en inglés (riesgo de fatalidad de casos).
+- Estimar la probabilidad de muerte a partir de datos de casos agregados utilizando el paquete `{cfr}`, *case fatality risk* en inglés (riesgo de fatalidad de casos).
 
-- Estima la tasa de letalidad, ajustando este cálculo teniendo en cuenta el intervalo entre la aparición de síntomas y la muerte del paciente utilizando los paquetes `{epiparameter}` y `{cfr}`.
+- Estima la probabilidad de muerte, ajustando este cálculo teniendo en cuenta el intervalo entre la aparición de síntomas y la muerte del paciente utilizando los paquetes `{epiparameter}` y `{cfr}`.
 
-- Estima la letalidad de una enfermedad durante la fase de crecimiento exponencial de una epidemia en expansión utilizando `{cfr}`.
+- Estima la probabilidad de muerte de una enfermedad durante la fase de crecimiento exponencial de una epidemia en expansión utilizando `{cfr}`.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
@@ -50,17 +50,17 @@ Podemos evaluar el potencial pandémico de una epidemia con dos medidas crítica
 
 ![Escenarios de Planificación de Pandemias del HHS basados en el Marco de Evaluación de la Gravedad de la Pandemia. Éste utiliza una medida combinada de gravedad clínica y transmisibilidad para caracterizar los escenarios de pandemia de gripe. **HHS**: Departamento de Salud y Servicios Humanos de los Estados Unidos ([CDC, 2016](https://www.cdc.gov/flu/pandemic-resources/national-strategy/severity-assessment-framework-508.html)).](fig/cfr-hhs-scenarios-psaf.png)
 
-Un enfoque epidemiológico para estimar la gravedad clínica consiste en cuantificar la tasa de letalidad (TL). TL es la probabilidad condicional de muerte una vez confirmado el diagnóstico de la enfermedad, calculada como el número acumulado de muertes por una enfermedad infecciosa dividido por el número de casos diagnosticados confirmados. Sin embargo, calcularlo directamente durante el curso de una epidemia tiende a dar como resultado un TL sesgado, dado el [intervalo temporal](../learners/reference.md#delaydist) que ocurre desde el inicio de lo síntomas hasta la muerte. Este retraso temporal varía sustancialmente a medida que avanza la epidemia y se estabiliza en las últimas fases del brote ([Ghani et al., 2005](https://academic.oup.com/aje/article/162/5/479/82647?login=false#620743)).
+Un enfoque epidemiológico para estimar la gravedad clínica consiste en cuantificar la probabilidad de muerte (CFR). CFR es la probabilidad condicional de muerte una vez confirmado el diagnóstico de la enfermedad, calculada como el número acumulado de muertes por una enfermedad infecciosa dividido por el número de casos diagnosticados confirmados. Sin embargo, calcularlo directamente durante el curso de una epidemia tiende a dar como resultado un CFR sesgado, dado el [intervalo temporal](../learners/reference.md#delaydist) que ocurre desde el inicio de lo síntomas hasta la muerte. Este retraso temporal varía sustancialmente a medida que avanza la epidemia y se estabiliza en las últimas fases del brote ([Ghani et al., 2005](https://academic.oup.com/aje/article/162/5/479/82647?login=false#620743)).
 
-![Estimaciones sesgadas de la tasa de letalidad como función del tiempo (línea gruesa), calculado como el número acumulado
-de muertes dividido por el número de casos confirmados en el tiempo $t$. La estimación de la tasa de letalidad al final de un brote (~30 de mayo) corresponde con la tasa de letalidad verdadera.
-La línea continua horizontal y las líneas de puntos muestran el valor esperado y los intervalos de confianza del 95% ($95%$ IC) de la predicción de la tasa de letalidad ajustada al retraso temporal entre el periodo inicial de síntomas y muerte
+![Estimaciones sesgadas de la probabilidad de muerte como función del tiempo (línea gruesa), calculado como el número acumulado
+de muertes dividido por el número de casos confirmados en el tiempo $t$. La estimación de la probabilidad de muerte al final de un brote (~30 de mayo) corresponde con la probabilidad de muerte verdadera.
+La línea continua horizontal y las líneas de puntos muestran el valor esperado y los intervalos de confianza del 95% ($95%$ IC) de la predicción de la probabilidad de muerte ajustada al retraso temporal entre el periodo inicial de síntomas y muerte
 , utilizando los datos observados hasta el 27 de Marzo de 2003
 ([Nishiura et al., 2009](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0006852))](fig/cfr-pone.0006852.g003-fig_c.png)
 
 ::::::::::::::::::::::: instructor
 
-Los periodos de tiempo son relevantes: Periodo 1 -- 15 días en los que la TL es cero para indicar que no se han notificado muertes; Periodo del 15 de marzo -- 26 de abril en el que la TL parece aumentar; Periodo del 30 de abril -- 30 de mayo en el que la estimación de la TL se estabiliza.
+Los periodos de tiempo son relevantes: Periodo 1 -- 15 días en los que la CFR es cero para indicar que no se han notificado muertes; Periodo del 15 de marzo -- 26 de abril en el que la CFR parece aumentar; Periodo del 30 de abril -- 30 de mayo en el que la estimación de la CFR se estabiliza.
 
 :::::::::::::::::::::::
 
@@ -68,7 +68,7 @@ En términos más generales, estimar la gravedad puede ser útil incluso fuera d
 Saber si un brote tiene o tuvo una gravedad diferente a la del registro histórico puede motivar investigaciones causales,
 que podrían ser intrínsecas al agente infeccioso (por ejemplo, una nueva cepa más grave) o debidas a factores subyacentes en la población (por ejemplo, inmunidad reducida o factores de morbilidad) ([Lipsitch et al., 2015](https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0003846)).
 
-En este tutorial vamos a aprender a utilizar la función `{cfr}` para calcular y ajustar una estimación de la tasa de letalidad utilizando [distribuciones temporales](../learners/reference.md#delaydist) provenientes de `{epiparameter}` o de otras fuentes, basándose en los métodos desarrollados por [Nishiura et al., 2009](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0006852) además, aprenderemos como reimplementar las funciones de `{cfr}` para realizar otras mediciones de la gravedad de la enfermedad, por ejemplo, el riesgo de fatalidad hospitalaria.
+En este tutorial vamos a aprender a utilizar la función `{cfr}` para calcular y ajustar una estimación de la probabilidad de muerte utilizando [distribuciones temporales](../learners/reference.md#delaydist) provenientes de `{epiparameter}` o de otras fuentes, basándose en los métodos desarrollados por [Nishiura et al., 2009](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0006852) además, aprenderemos como reimplementar las funciones de `{cfr}` para realizar otras mediciones de la gravedad de la enfermedad, por ejemplo, el riesgo de fatalidad hospitalaria.
 
 Utilizaremos el operador `%>%` para conectar funciones, por lo que es necesario también acceder al paquete`{tidyverse}`:
 
@@ -96,26 +96,26 @@ Esto nos ayuda a recordar las funciones requeridas y evitar usar funciones que f
 
 ¿Qué fuentes de datos podemos utilizar para estimar la gravedad clínica de un brote epidémico? [Verity et al., 2020](https://www.thelancet.com/journals/laninf/article/PIIS1473-3099\(20\)30243-7/fulltext) resume el espectro de casos de COVID-19:
 
-![Espectro de casos de COVID-19. La tasa de letalidad pretende estimar la proporción de muertes entre los casos confirmados en una epidemia.
+![Espectro de casos de COVID-19. La probabilidad de muerte pretende estimar la proporción de muertes entre los casos confirmados en una epidemia.
 ([Verity et al., 2020](https://www.thelancet.com/journals/laninf/article/PIIS1473-3099\(20\)30243-7/fulltext#gr1))](fig/cfr-spectrum-cases-covid19.jpg)
 
 - En la cúspide de la pirámide, los que cumplían los criterios de caso de la OMS para **grave** o críticos, identificados en el ámbito hospitalario, presentando una neumonía vírica atípica. Estos casos se habrían identificado en China continental y entre los categorizados internacionalmente como de transmisión local.
 - Es probable que haya muchos más casos **sintomáticos** (es decir, con fiebre, tos o mialgia) pero no requiriesen hospitalización. Estos casos se habrían identificado mediante el rastro de casos potenciales en vuelos internacionales a zonas de alto riesgo y mediante el rastreo de los contactos de los casos confirmados, o a través de vigilancia pasiva de otras enfermedades infecciosas respiratorias en la población.
 - La parte inferior de la pirámide representa enfermedad **leve** (y posiblemente **asintomática**). Estos casos podrían identificarse mediante el rastreo de contactos, mediante pruebas serológicas.
 
-  ## Tasa de letalidad no ajustada
+  ## probabilidad de muerte no ajustada
 
-Medimos la gravedad de la enfermedad en términos de riesgo/tasa de letalidad (TL). TL se interpreta como la probabilidad condicional de muerte dado un diagnóstico confirmado, calculada como el número acumulado de muertes $D_{t}$ sobre el número acumulado de casos confirmados $C_{t}$ en un momento determinado $t$. Podemos referirnos al *TL sesgado* ($b_{t}$):
+Medimos la gravedad de la enfermedad en términos de riesgo/probabilidad de muerte (CFR). CFR se interpreta como la probabilidad condicional de muerte dado un diagnóstico confirmado, calculada como el número acumulado de muertes $D_{t}$ sobre el número acumulado de casos confirmados $C_{t}$ en un momento determinado $t$. Podemos referirnos al *CFR sesgado* ($b_{t}$):
 
 $$ b_{t} =  \frac{D_{t}}{C_{t}} $$
 
-Este cálculo es *sesgado* porque genera una subestimación de la TL real, debido al retraso temporal desde el inicio de los síntomas hasta la muerte, que sólo se estabiliza en las últimas fases del brote.
+Este cálculo es *sesgado* porque genera una subestimación de la CFR real, debido al retraso temporal desde el inicio de los síntomas hasta la muerte, que sólo se estabiliza en las últimas fases del brote.
 
 <!-- ¿añadir aquí la llamada sobre ratio o riesgo?  -->
 
 <!-- https://github.com/epiverse-trace/cfr/issues/130 -->
 
-Para calcular la TL de forma directa y sin ajustar el retraso temporal entre la aparición de síntomas y la muerte del paciente (conocida como tasa de letalidad "naive"), el paquete `{cfr}` requiere un una base de datos (dataframe) que contenga las siguientes tres columnas:
+Para calcular la CFR de forma directa y sin ajustar el retraso temporal entre la aparición de síntomas y la muerte del paciente (conocida como probabilidad de muerte "naive"), el paquete `{cfr}` requiere un una base de datos (dataframe) que contenga las siguientes tres columnas:
 
 - `date`
 - `cases`
@@ -171,11 +171,11 @@ Estos deben ser **agregados** por día, es decir, cada fila de la base de datos 
 
 ::::::::::::::::::
 
-Utilizando la función `cfr_static()` directamente, calculamos la tasa de letalidad sin ajustar:
+Utilizando la función `cfr_static()` directamente, calculamos la probabilidad de muerte sin ajustar:
 
 
 ``` r
-# Cálculo de la tasa de letalidad sin ajustar durante los primeros 30 días
+# Cálculo de la probabilidad de muerte sin ajustar durante los primeros 30 días
 cfr::cfr_static(data = ebola1976 %>% slice_head(n = 30))
 ```
 
@@ -188,7 +188,7 @@ cfr::cfr_static(data = ebola1976 %>% slice_head(n = 30))
 
 Descarga el archivo [sarscov2\_casos\_defunciones.csv](data/sarscov2_cases_deaths.csv) y léelo en R.
 
-Estima la tasa de letalidad sin ajustar.
+Estima la probabilidad de muerte sin ajustar.
 
 :::::::::::::::::::: hint
 
@@ -265,7 +265,7 @@ sarscov2_input %>%
 
 ### Dos sesgos que afectan a la estimación de la TL
 
-[Lipsitch et al., 2015](https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0003846) describen dos posibles sesgos que pueden afectar a la estimación de la tasa de letalidad (y sus posibles soluciones):
+[Lipsitch et al., 2015](https://journals.plos.org/plosntds/article?id=10.1371/journal.pntd.0003846) describen dos posibles sesgos que pueden afectar a la estimación de la probabilidad de muerte (y sus posibles soluciones):
 
 :::::::::::::::::::::::::::::
 
@@ -275,7 +275,7 @@ sarscov2_input %>%
 
 Para enfermedades con un *espectro* de presentaciones clínicas, es más probable que los casos de mayor gravedad sean reconocidos y notificados a las autoridades de salud pública y se registran en las bases de datos de vigilancia, ya que las personas con síntomas graves son las que suelen buscar atención médica y acuden al centro de salud/hospital.
 
-Por lo tanto, la TL será normalmente más elevada entre *los casos detectados* que entre toda la población de casos, dado que esta última puede incluir individuos con presentaciones leves, subclínicas, y (según algunas definiciones de "caso") asintomáticas.
+Por lo tanto, la CFR será normalmente más elevada entre *los casos detectados* que entre toda la población de casos, dado que esta última puede incluir individuos con presentaciones leves, subclínicas, y (según algunas definiciones de "caso") asintomáticas.
 
 :::::::::::::
 
@@ -283,7 +283,7 @@ Por lo tanto, la TL será normalmente más elevada entre *los casos detectados* 
 
 ### 2\. Sesgo debido al retraso en la notificación de la defunción
 
-En tiempo real durante una epidemia, suele haber un retraso temporal entre el momento en que alguien muere y el momento en que se notifica su muerte a la autoridad correspondiente. Por lo tanto, la lista de casos en tiempo real incluye a personas que morirán a causa de la enfermedad en el futuro, pero que aún siguen vivas, o que han muerto, pero cuya muerte no se ha notificado aún. Así pues, dividir el número acumulado de muertes notificadas por el número acumulado de casos notificados en un momento concreto durante un brote epidémico subestimará la TL verdadera.
+En tiempo real durante una epidemia, suele haber un retraso temporal entre el momento en que alguien muere y el momento en que se notifica su muerte a la autoridad correspondiente. Por lo tanto, la lista de casos en tiempo real incluye a personas que morirán a causa de la enfermedad en el futuro, pero que aún siguen vivas, o que han muerto, pero cuya muerte no se ha notificado aún. Así pues, dividir el número acumulado de muertes notificadas por el número acumulado de casos notificados en un momento concreto durante un brote epidémico subestimará la CFR verdadera.
 
 Los determinantes clave de la magnitud del sesgo son la *tasa de crecimiento* de la epidemia y la *distribución* del intervalo de tiempo desde la notificación del caso hasta la notificación de la defunción. Cuanto más largos sea este intervalo de tiempo y mayor sea la tasa de crecimiento, mayor será el sesgo.
 
@@ -295,9 +295,9 @@ En este episodio del tutorial, vamos a centrarnos en las soluciones para hacer f
 
 ### Caso de estudio: Gripe A (H1N1), México, 2009
 
-Mejorar la estimación de la tasa de letalidad, ajustando su cálculo al retraso temporal entre notificación de casos y muerte es crucial para determinar la gravedad de la enfermedad, adaptar la intensidad y el tipo de intervenciones de salud pública y asesorar a la población.
+Mejorar la estimación de la probabilidad de muerte, ajustando su cálculo al retraso temporal entre notificación de casos y muerte es crucial para determinar la gravedad de la enfermedad, adaptar la intensidad y el tipo de intervenciones de salud pública y asesorar a la población.
 
-En 2009, durante el virus de la gripe porcina, Gripe A (H1N1) en México, la estimación temprana de la tasa de letalidad fue sesgada. Los informes iniciales del gobierno de México sugerían una infección virulenta, mientras que, en otros países, el mismo virus se percibía como leve ([TIME, 2009](https://content.time.com/time/health/article/0,8599,1894534,00.html)).
+En 2009, durante el virus de la gripe porcina, Gripe A (H1N1) en México, la estimación temprana de la probabilidad de muerte fue sesgada. Los informes iniciales del gobierno de México sugerían una infección virulenta, mientras que, en otros países, el mismo virus se percibía como leve ([TIME, 2009](https://content.time.com/time/health/article/0,8599,1894534,00.html)).
 
 En EE.UU. y Canadá, no se atribuyó ninguna muerte al virus en los diez primeros días tras la declaración de emergencia de salud pública por parte de la Organización Mundial de la Salud. 
 
@@ -313,7 +313,7 @@ Podemos mostrar este sesgo utilizando la función [concepto descrito en esta vi�
 
 ::::::::::::::::::::
 
-## TL ajustada al retraso temporal
+## CFR ajustada al retraso temporal
 
 [Nishiura et al, 2009](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0006852) desarrollaron un método que tiene en cuenta la **distribución temporal** desde el inicio de los síntomas hasta la muerte.
 
@@ -337,7 +337,7 @@ plot(onset_to_death_ebola, day_range = 0:40)
 
 <img src="fig/severity-static-rendered-unnamed-chunk-9-1.png" style="display: block; margin: auto;" />
 
-Para calcular la TL ajustada, podemos utilizar la función `cfr_static()`, a través del argumento `delay_density`.
+Para calcular la CFR ajustada, podemos utilizar la función `cfr_static()`, a través del argumento `delay_density`.
 
 
 ``` r
@@ -363,7 +363,7 @@ Total cases = 135 and p = 0.955: using Normal approximation to binomial likeliho
 Total cases = 135 and p = 0.955: using Normal approximation to binomial likelihood.
 ```
 
-La tasa de letalidad ajustada indicó que la gravedad de la enfermedad *al final del brote* o con el *últimos datos disponibles en ese momento* es 0.9717 con un intervalo de confianza del 95% entre 0.8201 y 0.9866, con un valor superior al obtenido a través del cálculo directo sin ajustar.
+La probabilidad de muerte ajustada indicó que la gravedad de la enfermedad *al final del brote* o con el *últimos datos disponibles en ese momento* es 0.9717 con un intervalo de confianza del 95% entre 0.8201 y 0.9866, con un valor superior al obtenido a través del cálculo directo sin ajustar.
 
 :::::::::::::::::: callout
 
@@ -385,9 +385,9 @@ Para distribuciones cuyos parámetros no estén disponibles en `{epiparameter}`,
 
 Utiliza el mismo archivo del reto anterior ([sarscov2\_casos\_muertes.csv](data/sarscov2_cases_deaths.csv)).
 
-Estima la TL ajustada al retraso temporal utilizando la distribución apropiada y
+Estima la CFR ajustada al retraso temporal utilizando la distribución apropiada y
 
-- ¡Compara los valores de la TL ajustada y sin ajuste temporal!
+- ¡Compara los valores de la CFR ajustada y sin ajuste temporal!
 
 :::::::::::::::::::: hint
 
@@ -468,7 +468,7 @@ Total cases = 159402 and p = 0.0734: using Normal approximation to binomial like
 1             0.047       0.0221        0.2931
 ```
 
-Interpreta las diferencias entre las estimaciones de la tasa de letalidad sin ajustar y con ajuste temporal al intervalo entre la aparición inicial de síntomas en los casos y su muerte.
+Interpreta las diferencias entre las estimaciones de la probabilidad de muerte sin ajustar y con ajuste temporal al intervalo entre la aparición inicial de síntomas en los casos y su muerte.
 
 ::::::::::::::::::::
 
@@ -490,7 +490,7 @@ Sin embargo, esta suposición puede no ser adecuada en el caso de distribuciones
 
 ### ¿Cómo funciona {cfr}?
 
-Para ajustar la tasa de letalidad, [Nishiura et al., 2009](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0006852) utilizan los datos de incidencia de casos y muertes para estimar el número de casos con resultados conocidos:
+Para ajustar la probabilidad de muerte, [Nishiura et al., 2009](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0006852) utilizan los datos de incidencia de casos y muertes para estimar el número de casos con resultados conocidos:
 
 $$
 u_t = \dfrac{\sum_{i = 0}^t
@@ -505,13 +505,13 @@ donde
 
 $u_{t}$ se utiliza para **escalar** el valor del número acumulado de casos en el denominador en el cálculo de la TL. Se calcula internamente con la función [`estimate_outcomes()`](https://epiverse-trace.github.io/cfr/reference/estimate_outcomes.html)
 
-El estimador para la tasa de letalidad puede expresarse como:
+El estimador para la probabilidad de muerte puede expresarse como:
 
 $$p_{t} = \frac{b_{t}}{u_{t}}$$
 
-donde $p_{t}$ es la proporción realizada de casos confirmados que morirán a causa de la infección (o la TL real), y $b_{t}$ es la estimación cruda y sesgada de la TL.
+donde $p_{t}$ es la proporción realizada de casos confirmados que morirán a causa de la infección (o la CFR real), y $b_{t}$ es la estimación cruda y sesgada de la TL.
 
-A partir de esta última ecuación, observamos que la TL no sesgada $p_{t}$ es mayor que la TL sesgada $b_{t}$ porque en $u_{t}$ el numerador es menor que el denominador (observa que $f_{t}$ es la distribución de probabilidad del *retraso temporal* entre síntomas y muerte). Por tanto, nos referimos a $b_{t}$ como el estimador sesgado de la tasa de letalidad.
+A partir de esta última ecuación, observamos que la CFR no sesgada $p_{t}$ es mayor que la CFR sesgada $b_{t}$ porque en $u_{t}$ el numerador es menor que el denominador (observa que $f_{t}$ es la distribución de probabilidad del *retraso temporal* entre síntomas y muerte). Por tanto, nos referimos a $b_{t}$ como el estimador sesgado de la probabilidad de muerte.
 
 Cuando observamos todo el curso de una epidemia (desde $t \rightarrow \infty$), $u_{t}$ tiende a 1, lo que hace que $b_{t}$ tiende a $p_{t}$ y se convierta en un estimador no sesgado ([Nishiura et al., 2009](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0006852)).
 
@@ -519,17 +519,17 @@ Cuando observamos todo el curso de una epidemia (desde $t \rightarrow \infty$), 
 
 ## Estimación temprana de la TL
 
-En el reto anterior, descubrimos que el valor de la tasa de letalidad ajustada y no ajustada son diferentes.
+En el reto anterior, descubrimos que el valor de la probabilidad de muerte ajustada y no ajustada son diferentes.
 
-La TL sin ajustar es útil para obtener una estimación global de la gravedad del brote. Una vez que el brote haya finalizado o haya progresado de forma que se notifiquen más muertes, la TL estimada es entonces *más cercana a* la TL "verdadera" o no sesgada.
+La CFR sin ajustar es útil para obtener una estimación global de la gravedad del brote. Una vez que el brote haya finalizado o haya progresado de forma que se notifiquen más muertes, la CFR estimada es entonces *más cercana a* la CFR "verdadera" o no sesgada.
 
-Por otra parte, la TL **ajustada** puede ser utilizada para estimar la gravedad de una enfermedad infecciosa emergente de una forma más temprana durante una epidemia.
+Por otra parte, la CFR **ajustada** puede ser utilizada para estimar la gravedad de una enfermedad infecciosa emergente de una forma más temprana durante una epidemia.
 
-Podemos explorar la *TL ajustada al retraso temporal* de forma temprana utilizando la función `cfr_rolling()`
+Podemos explorar la *CFR ajustada al retraso temporal* de forma temprana utilizando la función `cfr_rolling()`
 
 :::::::::::::::::::::: callout
 
-`cfr_rolling()` es una función que calcula automáticamente la TL en cada día del brote con los datos disponibles hasta ese día, lo que ahorra tiempo al usuario, ya que no hace falta calcular este parámetro manualmente para cada momento.
+`cfr_rolling()` es una función que calcula automáticamente la CFR en cada día del brote con los datos disponibles hasta ese día, lo que ahorra tiempo al usuario, ya que no hace falta calcular este parámetro manualmente para cada momento.
 
 ::::::::::::::::::::::
 
@@ -590,9 +590,9 @@ utils::tail(rolling_cfr_adjusted)
 73 1976-11-05            0.9818       0.8843        0.9913
 ```
 
-Con `utils::tail()` mostramos como los últimos valores estimados de la TL ajustada y sin ajustar tienen rangos superpuestos de intervalos de confianza del 95%.
+Con `utils::tail()` mostramos como los últimos valores estimados de la CFR ajustada y sin ajustar tienen rangos superpuestos de intervalos de confianza del 95%.
 
-Ahora, visualicemos ambos resultados en una serie temporal. ¿Cómo se comportarían en tiempo real las estimaciones de TL ajustadas y sin ajustar?
+Ahora, visualicemos ambos resultados en una serie temporal. ¿Cómo se comportarían en tiempo real las estimaciones de CFR ajustadas y sin ajustar?
 
 
 ``` r
@@ -640,7 +640,7 @@ bind_rows(
 
 <img src="fig/severity-static-rendered-unnamed-chunk-19-1.png" style="display: block; margin: auto;" />
 
-La línea horizontal representa la TL ajustada al retraso temporal, estimada al final del brote. La línea punteada significa que la estimación tiene un intervalo de confianza del 95% (IC 95%).
+La línea horizontal representa la CFR ajustada al retraso temporal, estimada al final del brote. La línea punteada significa que la estimación tiene un intervalo de confianza del 95% (IC 95%).
 
 **Observa** que este cálculo ajustado al retraso temporal entre síntomas y muerte es especialmente útil cuando los únicos datos disponibles son *curvas epidémica de casos confirmados* (es decir, cuando no se dispone de datos individuales, especialmente durante la fase inicial de la epidemia). Cuando hay pocas muertes o ninguna, hay que hacer una suposición para la *distribución temporal* desde la aparición de síntomas hasta la muerte, por ejemplo, a partir de la literatura basada en brotes anteriores. [Nishiura et al., 2009](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0006852) representan esto en las figuras con datos del brote de SARS en Hong Kong, 2003.
 
@@ -648,27 +648,27 @@ La línea horizontal representa la TL ajustada al retraso temporal, estimada al 
 
 ### Caso de estudio: Brote de SARS, Hong Kong, 2003
 
-Las figuras A y B muestran el número acumulado de casos y muertes por SRAS, y la figura C muestra las estimaciones observadas (sesgadas) del CFR en función del tiempo, es decir, el número acumulado de muertes sobre casos en el momento $t$. Debido al retraso temporal desde el inicio de los síntomas hasta la muerte, la estimación sesgada de la Tasa de Letalidad en el tiempo $t$ subestima el valor en las etapas finales del brote (es decir, 302/1755 = 17,2%).
+Las figuras A y B muestran el número acumulado de casos y muertes por SRAS, y la figura C muestra las estimaciones observadas (sesgadas) del CFR en función del tiempo, es decir, el número acumulado de muertes sobre casos en el momento $t$. Debido al retraso temporal desde el inicio de los síntomas hasta la muerte, la estimación sesgada de la probabilidad de muerte en el tiempo $t$ subestima el valor en las etapas finales del brote (es decir, 302/1755 = 17,2%).
 
-![Riesgo observado (sesgado) de letalidad confirmada del síndrome respiratorio agudo grave (SRAS) en Hong Kong, 2003. ([Nishiura et al., 2009](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0006852))](fig/cfr-pone.0006852.g003-fig_abc.png)
+![Riesgo observado (sesgado) de muerte confirmada del síndrome respiratorio agudo grave (SRAS) en Hong Kong, 2003. ([Nishiura et al., 2009](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0006852))](fig/cfr-pone.0006852.g003-fig_abc.png)
 
-No obstante, incluso utilizando únicamente los datos observados para el periodo comprendido entre el 19 de marzo y el 2 de abril, `cfr_static()` puede obtener una predicción adecuada (Figura D), por ejemplo, la TL ajustada al retraso en el 27 de marzo es del 18,1% (IC del 95%: 10,5, 28,1). Se observa una sobreestimación en las fases muy tempranas de la epidemia, pero los límites de confianza del 95% en las fases posteriores incluyen la TL realizado (es decir, 17,2 %).
+No obstante, incluso utilizando únicamente los datos observados para el periodo comprendido entre el 19 de marzo y el 2 de abril, `cfr_static()` puede obtener una predicción adecuada (Figura D), por ejemplo, la CFR ajustada al retraso en el 27 de marzo es del 18,1% (IC del 95%: 10,5, 28,1). Se observa una sobreestimación en las fases muy tempranas de la epidemia, pero los límites de confianza del 95% en las fases posteriores incluyen la CFR realizado (es decir, 17,2 %).
 
-![Determinación temprana del riesgo de letalidad confirmada ajustado al retraso del síndrome respiratorio agudo grave (SRAS) en Hong Kong, 2003. ([Nishiura et al., 2009](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0006852))](fig/cfr-pone.0006852.g003-fig_d.png)
+![Determinación temprana del riesgo de muerte confirmada ajustado al retraso del síndrome respiratorio agudo grave (SRAS) en Hong Kong, 2003. ([Nishiura et al., 2009](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0006852))](fig/cfr-pone.0006852.g003-fig_d.png)
 
 ::::::::::::::::::::::::::::::::::
 
 :::::::::::::::::::::::::::::::::::::::::::: discussion
 
-### Interpretar la estimación de la TL en la fase inicial del brote
+### Interpretar la estimación de la CFR en la fase inicial del brote
 
 Basándote en la figura anterior:
 
-- ¿Cuántos días hay entre el inicio del brote y la fecha en la que el intervalo de confianza de la *TL ajustada* se cruza con el intervalo de confianza de la *TL sin ajustar*? ¿Los intervalos se cruzan con la TL estimada al final del brote?
+- ¿Cuántos días hay entre el inicio del brote y la fecha en la que el intervalo de confianza de la *CFR ajustada* se cruza con el intervalo de confianza de la *CFR sin ajustar*? ¿Los intervalos se cruzan con la CFR estimada al final del brote?
 
 Discusión:
 
-- ¿Cuáles son las implicaciones para la política de salud pública de tener una *TL ajustada por retraso temporal*?
+- ¿Cuáles son las implicaciones para la política de salud pública de tener una *CFR ajustada por retraso temporal*?
 
 ::::::::::::::::::::::::::::::::::::::::::::
 
@@ -682,7 +682,7 @@ Podemos utilizar la inspección visual o el análisis de los marcos de datos de 
 
 Hay casi un mes de diferencia.
 
-Nótese que la estimación tiene una incertidumbre considerable al principio de la serie temporal. Al cabo de dos semanas, la TL ajustada se aproxima a la estimación global de la TL al final del brote.
+Nótese que la estimación tiene una incertidumbre considerable al principio de la serie temporal. Al cabo de dos semanas, la CFR ajustada se aproxima a la estimación global de la CFR al final del brote.
 
 ¿Es este patrón similar al de otros brotes? Podemos utilizar los conjuntos de datos de los retos de este episodio. ¡Te invitamos a averiguarlo!
 
@@ -692,17 +692,17 @@ Nótese que la estimación tiene una incertidumbre considerable al principio de 
 
 ### Lista de verificación
 
-Con `{cfr}` estimamos la TL como la proporción de muertes entre **confirmadas** confirmados.
+Con `{cfr}` estimamos la CFR como la proporción de muertes entre **confirmadas** confirmados.
 
-Utilizando sólo el número de casos **confirmados** está claro que se pasarán por alto todos los casos que no busquen tratamiento médico o no sean notificados, así como todos los casos asintomáticos. Esto significa que la estimación de la TL es superior a la proporción de muertes entre los infectados.
+Utilizando sólo el número de casos **confirmados** está claro que se pasarán por alto todos los casos que no busquen tratamiento médico o no sean notificados, así como todos los casos asintomáticos. Esto significa que la estimación de la CFR es superior a la proporción de muertes entre los infectados.
 
 ::::::::::::::::::::::
 
 ::::::::::::::::::::::::::: solution
 
-### ¿Por qué difieren la TL sin ajustar y la ajustada al retraso temporal?
+### ¿Por qué difieren la CFR sin ajustar y la ajustada al retraso temporal?
 
-`{cfr}` tiene como objetivo obtener un estimador insesgado "mucho antes" de observar el curso completo del brote. Para ello `{cfr}` utiliza el factor de subestimación $u_{t}$ para estimar la TL sin sesgo $p_{t}$ , utilizando métodos de máxima verosimilitud, dado el *proceso de muestreo* definido por [Nishiura et al., 2009](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0006852).
+`{cfr}` tiene como objetivo obtener un estimador insesgado "mucho antes" de observar el curso completo del brote. Para ello `{cfr}` utiliza el factor de subestimación $u_{t}$ para estimar la CFR sin sesgo $p_{t}$ , utilizando métodos de máxima verosimilitud, dado el *proceso de muestreo* definido por [Nishiura et al., 2009](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0006852).
 
 :::::::::::::::::::::::::::
 
@@ -710,15 +710,15 @@ Utilizando sólo el número de casos **confirmados** está claro que se pasarán
 
 ### ¿Qué es el proceso de muestreo?
 
-![La población de casos confirmados y el proceso de muestreo para estimar la TL sin sesgo durante el transcurso de un brote. ([Nishiura et al., 2009](https://doi.org/10.1371/journal.pone.0006852.g001))](fig/cfr-pone.0006852.g001.png)
+![La población de casos confirmados y el proceso de muestreo para estimar la CFR sin sesgo durante el transcurso de un brote. ([Nishiura et al., 2009](https://doi.org/10.1371/journal.pone.0006852.g001))](fig/cfr-pone.0006852.g001.png)
 
-En *datos agregados de incidencia* en el momento $t$ conocemos el número acumulado de casos confirmados y muertes, $C_{t}$ y $D_{t}$ y deseamos estimar la TL sin sesgo $\pi$ mediante el factor de subestimación $u_{t}$.
+En *datos agregados de incidencia* en el momento $t$ conocemos el número acumulado de casos confirmados y muertes, $C_{t}$ y $D_{t}$ y deseamos estimar la CFR sin sesgo $\pi$ mediante el factor de subestimación $u_{t}$.
 
 Si conociéramos el factor de subestimación $u_{t}$ podríamos especificar el tamaño de la población de casos confirmados que ya no corren riesgo ($u_{t}C_{t}$, **sombreado**), aunque no sabemos qué individuos supervivientes pertenecen a este grupo. Una proporción $\pi$ de los del grupo de casos aún en riesgo (tamaño $(1- u_{t})C_{t}$, **sin sombrear**) se espera que muera.
 
 Ya que cada caso que deja de estar en riesgo tiene una probabilidad independiente de morir, $\pi$ el número de muertes, $D_{t}$ es una muestra de una distribución binomial con tamaño de muestra $u_{t}C_{t}$ y probabilidad de morir $p_{t}$ = $\pi$.
 
-Esto se representa mediante la siguiente función de verosimilitud para obtener la estimación de máxima verosimilitud de la TL sin sesgo $p_{t}$ = $\pi$:
+Esto se representa mediante la siguiente función de verosimilitud para obtener la estimación de máxima verosimilitud de la CFR sin sesgo $p_{t}$ = $\pi$:
 
 $$
 {\sf L}(\pi | C_{t},D_{t},u_{t}) = \log{\dbinom{u_{t}C_{t}}{D_{t}}} + D_{t} \log{\pi} +
@@ -733,7 +733,7 @@ Esta estimación la realiza la función interna `?cfr:::estimate_severity()`.
 
 ### Limitaciones
 
-- La TL ajustada al retraso temporal no aborda todas las fuentes de error en los datos, como el infradiagnóstico de individuos infectados.
+- La CFR ajustada al retraso temporal no aborda todas las fuentes de error en los datos, como el infradiagnóstico de individuos infectados.
 
 ::::::::::::::::::::::::::
 
@@ -915,7 +915,7 @@ mers_incidence %>%
 ```
 
 ``` r
-# Estima la TL ajustada a retrasos temporales
+# Estima la CFR ajustada a retrasos temporales
 mers_incidence %>%
   cfr::prepare_data(
     cases_variable = "dt_onset",
@@ -937,9 +937,9 @@ mers_incidence %>%
 
 ### Heterogeneidad de la gravedad
 
-La TL puede diferir entre poblaciones (por ejemplo, edad, espacio, tratamiento); cuantificar estas heterogeneidades puede ayudar a dirigir los recursos adecuadamente y a comparar distintos regímenes asistenciales ([Cori et al., 2017](https://royalsocietypublishing.org/doi/10.1098/rstb.2016.0371)).
+La CFR puede diferir entre poblaciones (por ejemplo, edad, espacio, tratamiento); cuantificar estas heterogeneidades puede ayudar a dirigir los recursos adecuadamente y a comparar distintos regímenes asistenciales ([Cori et al., 2017](https://royalsocietypublishing.org/doi/10.1098/rstb.2016.0371)).
 
-Utiliza la base de datos `cfr::covid_data` para estimar una TL ajustada al retraso temporal estratificada por países.
+Utiliza la base de datos `cfr::covid_data` para estimar una CFR ajustada al retraso temporal estratificada por países.
 
 ::::::::::::::::::::::::: hint
 
@@ -1033,9 +1033,9 @@ El paquete `{cfr}` tiene una función llamada `cfr_time_varying()` con una funci
 
 ### ¿Cuándo utilizar cfr\_rolling()?
 
-**cfr\_rolling()** muestra la TL estimada en cada día del brote, dado que los datos futuros sobre casos y muertes no están disponibles en ese momento. El valor final de *cfr\_rolling()* estimado es idéntico al de *cfr\_static()* con los mismos datos.
+**cfr\_rolling()** muestra la CFR estimada en cada día del brote, dado que los datos futuros sobre casos y muertes no están disponibles en ese momento. El valor final de *cfr\_rolling()* estimado es idéntico al de *cfr\_static()* con los mismos datos.
 
-Recuerda, como se muestra arriba *cfr\_rolling()* es útil para obtener estimaciones de la TL en las primeras fases y comprobar si la estimación de la TL de un brote se ha estabilizado. Así, *cfr\_rolling()* no es sensible a la duración ni al tamaño de la epidemia.
+Recuerda, como se muestra arriba *cfr\_rolling()* es útil para obtener estimaciones de la CFR en las primeras fases y comprobar si la estimación de la CFR de un brote se ha estabilizado. Así, *cfr\_rolling()* no es sensible a la duración ni al tamaño de la epidemia.
 
 :::::::::::::::::
 
@@ -1043,11 +1043,11 @@ Recuerda, como se muestra arriba *cfr\_rolling()* es útil para obtener estimaci
 
 ### ¿Cuándo utilizar cfr\_time\_varying()?
 
-Por otra parte, **cfr\_time\_varying()** calcula la TL a lo largo de una ventana móvil y ayuda a comprender los cambios en la TL debidos a cambios en la epidemia, por ejemplo, debidos a una nueva variante o a una mayor inmunidad por vacunación.
+Por otra parte, **cfr\_time\_varying()** calcula la CFR a lo largo de una ventana móvil y ayuda a comprender los cambios en la CFR debidos a cambios en la epidemia, por ejemplo, debidos a una nueva variante o a una mayor inmunidad por vacunación.
 
-Sin embargo, *cfr\_time\_variying()* es sensible a la incertidumbre del muestreo. Por tanto, es sensible al tamaño del brote. Cuanto mayor sea el número de casos con resultados esperados en un día determinado, más estimaciones razonables de la TL variable en el tiempo obtendremos.
+Sin embargo, *cfr\_time\_variying()* es sensible a la incertidumbre del muestreo. Por tanto, es sensible al tamaño del brote. Cuanto mayor sea el número de casos con resultados esperados en un día determinado, más estimaciones razonables de la CFR variable en el tiempo obtendremos.
 
-Por ejemplo, con 100 casos, la estimación del riesgo de mortalidad tendrá, a grandes rasgos, un intervalo de confianza del 95% ±10% de la estimación media (IC binomial). Por tanto, si tenemos >100 casos con resultados esperados *en un día determinado* podemos obtener estimaciones razonables de la TL variable en el tiempo. Pero si sólo tenemos >100 casos *a lo largo de toda la epidemia* probablemente tengamos que basarnos en **cfr\_rolling()** que utiliza los datos acumulados.
+Por ejemplo, con 100 casos, la estimación del riesgo de mortalidad tendrá, a grandes rasgos, un intervalo de confianza del 95% ±10% de la estimación media (IC binomial). Por tanto, si tenemos >100 casos con resultados esperados *en un día determinado* podemos obtener estimaciones razonables de la CFR variable en el tiempo. Pero si sólo tenemos >100 casos *a lo largo de toda la epidemia* probablemente tengamos que basarnos en **cfr\_rolling()** que utiliza los datos acumulados.
 
 Te invitamos a leer esta [viñeta sobre `cfr_time_varying()`](https://epiverse-trace.github.io/cfr/articles/estimate_time_varying_severity.html).
 
@@ -1067,7 +1067,7 @@ Utilizando `{cfr}` podemos cambiar las entradas para el numerador **casos** (`ca
 
 ### Riesgo de mortalidad por infección y hospitalización
 
-Si para la una *Tasa de letalidad* (TL o CFR en inglés), exigimos:
+Si para la una *probabilidad de muerte* (CFR o CFR en inglés), exigimos:
 
 - *Incidencia* de casos y muertes, con una:
 - Distribución de retraso temporal entre casos y muertes (o una aproximación cercana, como el tiempo entre inicio de los síntomas y la muerte).
@@ -1092,7 +1092,7 @@ Del mismo modo, el *Riesgo de Fatalidad por Hospitalización* (HFR) requiere:
 
 ![Niveles de gravedad de las infecciones por SRAS-CoV-2 y parámetros de interés. Se supone que cada nivel es un subconjunto del nivel inferior.](fig/cfr-s41467-020-19238-2-fig_a.png)
 
-- sCFR riesgo sintomático de letalidad,
+- sCFR riesgo sintomático de muerte,
 - sCHR riesgo sintomático de hospitalización,
 - mCFR riesgo de caso-fatalidad médicamente atendido,
 - mCHR riesgo de hospitalización de casos atendidos médicamente,
@@ -1121,11 +1121,11 @@ Responde a estas preguntas:
 
 - Utiliza `{cfr}` para estimar la gravedad
 
-- Utiliza `cfr_static()` para estimar la TL global con los últimos datos disponibles.
+- Utiliza `cfr_static()` para estimar la CFR global con los últimos datos disponibles.
 
-- Utiliza `cfr_rolling()` para mostrar cuál sería la TL estimada en cada día del brote.
+- Utiliza `cfr_rolling()` para mostrar cuál sería la CFR estimada en cada día del brote.
 
-- Utiliza la `delay_density` para ajustar la TL según la distribución de retrasos correspondiente.
+- Utiliza la `delay_density` para ajustar la CFR según la distribución de retrasos correspondiente.
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
