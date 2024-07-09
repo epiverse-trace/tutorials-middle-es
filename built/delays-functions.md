@@ -161,8 +161,8 @@ generate(covid_serialint, times = 10)
 ```
 
 ``` output
- [1] 2.738155 4.076071 4.741142 6.538356 4.626416 2.838848 2.948279 1.006288
- [9] 5.439549 3.394885
+ [1] 1.460527 5.503312 3.062604 1.888250 5.059213 3.088604 4.891572 5.446071
+ [9] 3.970327 9.797985
 ```
 
 ::::::::: instructor
@@ -473,10 +473,10 @@ epinow_estimates_cg <- epinow(
 ```
 
 ``` output
-WARN [2024-07-05 20:59:13] epinow: There were 5 divergent transitions after warmup. See
+WARN [2024-07-09 01:45:57] epinow: There were 8 divergent transitions after warmup. See
 https://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup
 to find out why this is a problem and how to eliminate them. - 
-WARN [2024-07-05 20:59:13] epinow: Examine the pairs() plot to diagnose sampling problems
+WARN [2024-07-09 01:45:57] epinow: Examine the pairs() plot to diagnose sampling problems
  - 
 ```
 
@@ -598,10 +598,10 @@ epinow_estimates_cgi <- epinow(
 ```
 
 ``` output
-WARN [2024-07-05 21:02:30] epinow: There were 3 divergent transitions after warmup. See
+WARN [2024-07-09 01:47:42] epinow: There were 5 divergent transitions after warmup. See
 https://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup
 to find out why this is a problem and how to eliminate them. - 
-WARN [2024-07-05 21:02:30] epinow: Examine the pairs() plot to diagnose sampling problems
+WARN [2024-07-09 01:47:42] epinow: Examine the pairs() plot to diagnose sampling problems
  - 
 ```
 
@@ -743,10 +743,10 @@ epinow_estimates_egi <- epinow(
 ```
 
 ``` output
-WARN [2024-07-05 21:07:11] epinow: There were 6 divergent transitions after warmup. See
+WARN [2024-07-09 01:50:28] epinow: There were 2 divergent transitions after warmup. See
 https://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup
 to find out why this is a problem and how to eliminate them. - 
-WARN [2024-07-05 21:07:11] epinow: Examine the pairs() plot to diagnose sampling problems
+WARN [2024-07-09 01:50:28] epinow: Examine the pairs() plot to diagnose sampling problems
  - 
 ```
 
@@ -903,17 +903,7 @@ epinow_estimates_igi <- epinow(
   generation_time = generation_time_opts(generation_time_influenza),
   delays = delay_opts(incubation_time_influenza)
 )
-```
 
-``` output
-WARN [2024-07-05 21:07:21] epinow: There were 1 divergent transitions after warmup. See
-https://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup
-to find out why this is a problem and how to eliminate them. - 
-WARN [2024-07-05 21:07:21] epinow: Examine the pairs() plot to diagnose sampling problems
- - 
-```
-
-``` r
 plot(epinow_estimates_igi)
 ```
 

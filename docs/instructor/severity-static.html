@@ -31,12 +31,12 @@
           </a>
           <span class="visually-hidden">This lesson is in the pre-alpha phase, which means that it is in early development, but has not yet been taught.</span>
         </abbr>
-        
+
       </div>
     </div>
     <div class="selector-container">
-      
-      
+
+
       <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle bordered-button" type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-expanded="false">
           <i aria-hidden="true" class="icon" data-feather="eye"></i> Instructor View <i data-feather="chevron-down"></i>
@@ -133,7 +133,7 @@
                 </div><!--/div.accordion-flush-->
               </div><!--div.sidenav-view-selector -->
             </div><!--/div.col -->
-      
+
             <hr></div><!--/div.mobile-row -->
 
           <div class="accordion accordion-flush" id="accordionFlush11">
@@ -152,7 +152,7 @@
     <div class="accordion-header" id="flush-heading1">
         <a href="index.html">Summary and Schedule</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -161,7 +161,7 @@
     <div class="accordion-header" id="flush-heading2">
         <a href="delays-access.html">1. Acceder a las distribuciones de retrasos epidemiológicos</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -170,7 +170,7 @@
     <div class="accordion-header" id="flush-heading3">
         <a href="quantify-transmissibility.html">2. Cuantificar la transmisión</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -179,7 +179,7 @@
     <div class="accordion-header" id="flush-heading4">
         <a href="delays-functions.html">3. Use delay distributions in analysis</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -188,7 +188,7 @@
     <div class="accordion-header" id="flush-heading5">
         <a href="create-forecast.html">4. Crear una previsión a corto plazo</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -202,7 +202,7 @@
         </span>
       </button>
     </div><!--/div.accordion-header-->
-        
+
     <div id="flush-collapsecurrent" class="accordion-collapse collapse show" aria-labelledby="flush-headingcurrent" data-bs-parent="#accordionFlushcurrent">
       <div class="accordion-body">
         <ul><li><a href="#introducci%C3%B3n">Introducción</a></li>
@@ -214,7 +214,7 @@
 <li><a href="#ap%C3%A9ndice">Apéndice</a></li>
         </ul></div><!--/div.accordion-body-->
     </div><!--/div.accordion-collapse-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -223,7 +223,7 @@
     <div class="accordion-header" id="flush-heading7">
         <a href="superspreading-estimate.html">6. Account for superspreading</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -232,7 +232,7 @@
     <div class="accordion-header" id="flush-heading8">
         <a href="superspreading-simulate.html">7. Simulate transmission chains</a>
     </div><!--/div.accordion-header-->
-        
+
   </div><!--/div.accordion-item-->
 </div><!--/div.accordion-flush-->
 
@@ -264,10 +264,10 @@
               </div>
             </div>
             <hr class="half-width resources"><a href="../instructor/aio.html">See all in one page</a>
-            
+
 
             <hr class="d-none d-sm-block d-md-none"><div class="d-grid gap-1">
-            
+
             </div>
           </div><!-- /div.accordion -->
         </div><!-- /div.sidebar-inner -->
@@ -288,20 +288,20 @@
           Previous: Crear una previsión
         </a>
         <a class="chapter-link float-end" href="../instructor/superspreading-estimate.html" rel="next">
-          Next: Account for... 
+          Next: Account for...
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i>
         </a>
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Estimación de la severidad del brote</h1>
-        <p>Last updated on 2024-07-05 |
-        
+        <p>Last updated on 2024-07-09 |
+
         <a href="https://github.com/epiverse-trace/tutorials-middle/edit/main/episodes/severity-static.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
-        
-        
-        
+
+
+
         <p>Estimated time: <i aria-hidden="true" data-feather="clock"></i> 12 minutes</p>
-        
+
         <div class="text-end">
           <button role="button" aria-pressed="false" tabindex="0" id="expand-code" class="pull-right" data-expand="Expand All Solutions " data-collapse="Collapse All Solutions "> Expand All Solutions <i aria-hidden="true" data-feather="plus"></i></button>
         </div>
@@ -356,8 +356,8 @@ crecimiento exponencial de una epidemia en expansión utilizando
 </div>
 </div>
 </div>
-<section id="introducción"><h2 class="section-heading">Introducción<a class="anchor" aria-label="anchor" href="#introducci%C3%B3n"></a>
-</h2>
+<section><h2 class="section-heading" id="introducción">Introducción<a class="anchor" aria-label="anchor" href="#introducci%C3%B3n"></a>
+<a class="anchor" aria-label="anchor" href="#introducci%C3%B3n"></a></h2>
 <hr class="half-width"><p>Entre las preguntas más comunes en la fase inicial de una epidemia se
 incluyen:</p>
 <ul><li>¿Cuál es el impacto probable del brote en la salud pública en
@@ -403,7 +403,7 @@ et al., 2009</a>)</div>
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor1" aria-expanded="false" aria-controls="collapseInstructor1">
   <h3 class="accordion-header" id="headingInstructor1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
 <div class="accordion-body">
 <p>Los periodos de tiempo son relevantes: Periodo 1 – 15 días en los que
 la TL es cero para indicar que no se han notificado muertes; Periodo del
@@ -461,8 +461,8 @@ paquetes.</p>
 </div>
 </div>
 </div>
-</section><section id="fuentes-de-datos-para-la-gravedad-clínica"><h2 class="section-heading">Fuentes de datos para la gravedad clínica<a class="anchor" aria-label="anchor" href="#fuentes-de-datos-para-la-gravedad-cl%C3%ADnica"></a>
-</h2>
+</section><section><h2 class="section-heading" id="fuentes-de-datos-para-la-gravedad-clínica">Fuentes de datos para la gravedad clínica<a class="anchor" aria-label="anchor" href="#fuentes-de-datos-para-la-gravedad-cl%C3%ADnica"></a>
+<a class="anchor" aria-label="anchor" href="#fuentes-de-datos-para-la-gravedad-cl%C3%ADnica"></a></h2>
 <hr class="half-width"><p>¿Qué fuentes de datos podemos utilizar para estimar la gravedad
 clínica de un brote epidémico? <a href="https://www.thelancet.com/journals/laninf/article/PIIS1473-3099(20)30243-7/fulltext" class="external-link">Verity
 et al., 2020</a> resume el espectro de casos de COVID-19:</p>
@@ -602,7 +602,7 @@ y léelo en R.</p>
 <button class="accordion-button hint-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHint1" aria-expanded="false" aria-controls="collapseHint1">
   <h4 class="accordion-header" id="headingHint1"> Give me a hint </h4>
 </button>
-<div id="collapseHint1" class="accordion-collapse collapse" aria-labelledby="headingHint1" data-bs-parent="#accordionHint1">
+<div id="collapseHint1" class="accordion-collapse collapse" data-bs-parent="#accordionHint1" aria-labelledby="headingHint1">
 <div class="accordion-body">
 <p>Comprueba el formato de los datos introducidos.</p>
 <ul><li>¿Contiene datos diarios?</li>
@@ -619,7 +619,7 @@ y léelo en R.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Show me the solution </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <p>Leemos los datos introducidos mediante
 <code>readr::read_csv()</code>. Esta función reconoce que la columna
@@ -684,8 +684,8 @@ por <code>cfr_static()</code>.</p>
 </div>
 </div>
 </div>
-</section><section id="sesgos-que-afectan-a-la-estimación-de-la-tl"><h2 class="section-heading">Sesgos que afectan a la estimación de la TL<a class="anchor" aria-label="anchor" href="#sesgos-que-afectan-a-la-estimaci%C3%B3n-de-la-tl"></a>
-</h2>
+</section><section><h2 class="section-heading" id="sesgos-que-afectan-a-la-estimación-de-la-tl">Sesgos que afectan a la estimación de la TL<a class="anchor" aria-label="anchor" href="#sesgos-que-afectan-a-la-estimaci%C3%B3n-de-la-tl"></a>
+<a class="anchor" aria-label="anchor" href="#sesgos-que-afectan-a-la-estimaci%C3%B3n-de-la-tl"></a></h2>
 <hr class="half-width"><div id="dos-sesgos-que-afectan-a-la-estimación-de-la-tl" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
@@ -705,7 +705,7 @@ estimación de la tasa de letalidad (y sus posibles soluciones):</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> 1. Sesgo por la identificación predominante de los casos más graves </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <p>Para enfermedades con un <em>espectro</em> de presentaciones
 clínicas, es más probable que los casos de mayor gravedad sean
@@ -726,7 +726,7 @@ detectados</em> que entre toda la población de casos, dado que esta
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> 2. Sesgo debido al retraso en la notificación de la defunción </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <p>En tiempo real durante una epidemia, suele haber un retraso temporal
 entre el momento en que alguien muere y el momento en que se notifica su
@@ -754,7 +754,7 @@ R<a href="https://github.com/epiverse-trace/cfr" class="external-link">cfr</a> �
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> Caso de estudio: Gripe A (H1N1), México, 2009 </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <p>Mejorar la estimación de la tasa de letalidad, ajustando su cálculo
 al retraso temporal entre notificación de casos y muerte es crucial para
@@ -782,7 +782,7 @@ obteniendo una gravedad clínica inferior a la de la pandemia de gripe de
 <button class="accordion-button instructor-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseInstructor2" aria-expanded="false" aria-controls="collapseInstructor2">
   <h3 class="accordion-header" id="headingInstructor2">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="edit-2"></i></div> Instructor Note </h3>
 </button>
-<div id="collapseInstructor2" class="accordion-collapse collapse" aria-labelledby="headingInstructor2" data-bs-parent="#accordionInstructor2">
+<div id="collapseInstructor2" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor2" aria-labelledby="headingInstructor2">
 <div class="accordion-body">
 <p>Podemos mostrar este sesgo utilizando la función <a href="https://epiverse-trace.github.io/cfr/articles/cfr.html#concept-how-reporting-delays-bias-cfr-estimates" class="external-link">concepto
 descrito en esta viñeta del paquete<code>{cfr}</code></a>.</p>
@@ -791,8 +791,8 @@ descrito en esta viñeta del paquete<code>{cfr}</code></a>.</p>
 </div>
 </div>
 </div>
-</section><section id="tl-ajustada-al-retraso-temporal"><h2 class="section-heading">TL ajustada al retraso temporal<a class="anchor" aria-label="anchor" href="#tl-ajustada-al-retraso-temporal"></a>
-</h2>
+</section><section><h2 class="section-heading" id="tl-ajustada-al-retraso-temporal">TL ajustada al retraso temporal<a class="anchor" aria-label="anchor" href="#tl-ajustada-al-retraso-temporal"></a>
+<a class="anchor" aria-label="anchor" href="#tl-ajustada-al-retraso-temporal"></a></h2>
 <hr class="half-width"><p><a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0006852" class="external-link">Nishiura
 et al, 2009</a> desarrollaron un método que tiene en cuenta la
 <strong>distribución temporal</strong> desde el inicio de los síntomas
@@ -898,7 +898,7 @@ apropiada y</p>
 <button class="accordion-button hint-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHint2" aria-expanded="false" aria-controls="collapseHint2">
   <h4 class="accordion-header" id="headingHint2"> Give me a hint </h4>
 </button>
-<div id="collapseHint2" class="accordion-collapse collapse" aria-labelledby="headingHint2" data-bs-parent="#accordionHint2">
+<div id="collapseHint2" class="accordion-collapse collapse" data-bs-parent="#accordionHint2" aria-labelledby="headingHint2">
 <div class="accordion-body">
 <ul><li>Encuentra el <code>&lt;epidist&gt;</code> ¡apropiado!</li>
 </ul></div>
@@ -910,7 +910,7 @@ apropiada y</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Show me the solution </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <p>Utilizamos <code>{epiparameter}</code> para acceder a una
 distribución temporal para los datos de incidencia agregados del
@@ -1003,7 +1003,7 @@ aparición inicial de síntomas en los casos y su muerte.</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler1" aria-expanded="false" aria-controls="collapseSpoiler1">
   <h3 class="accordion-header" id="headingSpoiler1">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> ¿Cuándo utilizar distribuciones discretas? </h3>
 </button>
-<div id="collapseSpoiler1" class="accordion-collapse collapse" aria-labelledby="headingSpoiler1" data-bs-parent="#accordionSpoiler1">
+<div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
 <div class="accordion-body">
 <p>En <code>cfr_static()</code> y toda la familia de funciones en
 <code>cfr_*()</code>, la opción más adecuada son las distribuciones
@@ -1031,7 +1031,7 @@ podemos hacer en R, si discretizamos los objetos
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler2" aria-expanded="false" aria-controls="collapseSpoiler2">
   <h3 class="accordion-header" id="headingSpoiler2">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> ¿Cómo funciona {cfr}? </h3>
 </button>
-<div id="collapseSpoiler2" class="accordion-collapse collapse" aria-labelledby="headingSpoiler2" data-bs-parent="#accordionSpoiler2">
+<div id="collapseSpoiler2" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler2" aria-labelledby="headingSpoiler2">
 <div class="accordion-body">
 <p>Para ajustar la tasa de letalidad, <a href="https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0006852" class="external-link">Nishiura
 et al., 2009</a> utilizan los datos de incidencia de casos y muertes
@@ -1075,8 +1075,8 @@ et al., 2009</a>).</p>
 </div>
 </div>
 </div>
-</section><section id="estimación-temprana-de-la-tl"><h2 class="section-heading">Estimación temprana de la TL<a class="anchor" aria-label="anchor" href="#estimaci%C3%B3n-temprana-de-la-tl"></a>
-</h2>
+</section><section><h2 class="section-heading" id="estimación-temprana-de-la-tl">Estimación temprana de la TL<a class="anchor" aria-label="anchor" href="#estimaci%C3%B3n-temprana-de-la-tl"></a>
+<a class="anchor" aria-label="anchor" href="#estimaci%C3%B3n-temprana-de-la-tl"></a></h2>
 <hr class="half-width"><p>En el reto anterior, descubrimos que el valor de la tasa de letalidad
 ajustada y no ajustada son diferentes.</p>
 <p>La TL sin ajustar es útil para obtener una estimación global de la
@@ -1240,7 +1240,7 @@ SARS en Hong Kong, 2003.</p>
 <button class="accordion-button spoiler-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSpoiler3" aria-expanded="false" aria-controls="collapseSpoiler3">
   <h3 class="accordion-header" id="headingSpoiler3">  <div class="note-square"><i aria-hidden="true" class="callout-icon" data-feather="eye"></i></div> Caso de estudio: Brote de SARS, Hong Kong, 2003 </h3>
 </button>
-<div id="collapseSpoiler3" class="accordion-collapse collapse" aria-labelledby="headingSpoiler3" data-bs-parent="#accordionSpoiler3">
+<div id="collapseSpoiler3" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler3" aria-labelledby="headingSpoiler3">
 <div class="accordion-body">
 <p>Las figuras A y B muestran el número acumulado de casos y muertes por
 SRAS, y la figura C muestra las estimaciones observadas (sesgadas) del
@@ -1293,7 +1293,7 @@ tener una <em>TL ajustada por retraso temporal</em>?</li>
 <button class="accordion-button hint-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHint3" aria-expanded="false" aria-controls="collapseHint3">
   <h4 class="accordion-header" id="headingHint3"> Give me a hint </h4>
 </button>
-<div id="collapseHint3" class="accordion-collapse collapse" aria-labelledby="headingHint3" data-bs-parent="#accordionHint3">
+<div id="collapseHint3" class="accordion-collapse collapse" data-bs-parent="#accordionHint3" aria-labelledby="headingHint3">
 <div class="accordion-body">
 <p>Podemos utilizar la inspección visual o el análisis de los marcos de
 datos de salida.</p>
@@ -1306,7 +1306,7 @@ datos de salida.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
   <h4 class="accordion-header" id="headingSolution6"> Show me the solution </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
 <div class="accordion-body">
 <p>Hay casi un mes de diferencia.</p>
 <p>Nótese que la estimación tiene una incertidumbre considerable al
@@ -1342,7 +1342,7 @@ muertes entre los infectados.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution7" aria-expanded="false" aria-controls="collapseSolution7">
   <h4 class="accordion-header" id="headingSolution7"> ¿Por qué difieren la TL sin ajustar y la ajustada al retraso temporal? </h4>
 </button>
-<div id="collapseSolution7" class="accordion-collapse collapse" aria-labelledby="headingSolution7" data-bs-parent="#accordionSolution7">
+<div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
 <div class="accordion-body">
 <p><a href="https://github.com/epiverse-trace/cfr" class="external-link">cfr</a> tiene como objetivo obtener un estimador insesgado
 “mucho antes” de observar el curso completo del brote. Para ello
@@ -1358,7 +1358,7 @@ et al., 2009</a>.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution8" aria-expanded="false" aria-controls="collapseSolution8">
   <h4 class="accordion-header" id="headingSolution8"> ¿Qué es el proceso de muestreo? </h4>
 </button>
-<div id="collapseSolution8" class="accordion-collapse collapse" aria-labelledby="headingSolution8" data-bs-parent="#accordionSolution8">
+<div id="collapseSolution8" class="accordion-collapse collapse" data-bs-parent="#accordionSolution8" aria-labelledby="headingSolution8">
 <div class="accordion-body">
 <figure><img src="../fig/cfr-pone.0006852.g001.png" alt="La población de casos confirmados y el proceso de muestreo para estimar la TL sin sesgo durante el transcurso de un brote. (Nishiura et al., 2009)" class="figure mx-auto d-block"><div class="figcaption">La población de casos confirmados y el proceso
 de muestreo para estimar la TL sin sesgo durante el transcurso de un
@@ -1399,7 +1399,7 @@ D_{t} \log{\pi} +
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution9" aria-expanded="false" aria-controls="collapseSolution9">
   <h4 class="accordion-header" id="headingSolution9"> Limitaciones </h4>
 </button>
-<div id="collapseSolution9" class="accordion-collapse collapse" aria-labelledby="headingSolution9" data-bs-parent="#accordionSolution9">
+<div id="collapseSolution9" class="accordion-collapse collapse" data-bs-parent="#accordionSolution9" aria-labelledby="headingSolution9">
 <div class="accordion-body">
 <ul><li>La TL ajustada al retraso temporal no aborda todas las fuentes de
 error en los datos, como el infradiagnóstico de individuos
@@ -1408,8 +1408,8 @@ infectados.</li>
 </div>
 </div>
 </div>
-</section><section id="desafíos"><h2 class="section-heading">Desafíos<a class="anchor" aria-label="anchor" href="#desaf%C3%ADos"></a>
-</h2>
+</section><section><h2 class="section-heading" id="desafíos">Desafíos<a class="anchor" aria-label="anchor" href="#desaf%C3%ADos"></a>
+<a class="anchor" aria-label="anchor" href="#desaf%C3%ADos"></a></h2>
 <hr class="half-width"><div id="los-datos-agregados-difieren-de-los-listados-de-casos-individuales" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
@@ -1431,18 +1431,18 @@ nivel individual.</p>
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code># A tibble: 11,903 × 8
-      id   age sex   status    date_of_onset date_of_sample district chiefdom   
-   &lt;int&gt; &lt;dbl&gt; &lt;fct&gt; &lt;fct&gt;     &lt;date&gt;        &lt;date&gt;         &lt;fct&gt;    &lt;fct&gt;      
- 1     1    20 F     confirmed 2014-05-18    2014-05-23     Kailahun Kissi Teng 
- 2     2    42 F     confirmed 2014-05-20    2014-05-25     Kailahun Kissi Teng 
+      id   age sex   status    date_of_onset date_of_sample district chiefdom
+   &lt;int&gt; &lt;dbl&gt; &lt;fct&gt; &lt;fct&gt;     &lt;date&gt;        &lt;date&gt;         &lt;fct&gt;    &lt;fct&gt;
+ 1     1    20 F     confirmed 2014-05-18    2014-05-23     Kailahun Kissi Teng
+ 2     2    42 F     confirmed 2014-05-20    2014-05-25     Kailahun Kissi Teng
  3     3    45 F     confirmed 2014-05-20    2014-05-25     Kailahun Kissi Tonge
- 4     4    15 F     confirmed 2014-05-21    2014-05-26     Kailahun Kissi Teng 
- 5     5    19 F     confirmed 2014-05-21    2014-05-26     Kailahun Kissi Teng 
- 6     6    55 F     confirmed 2014-05-21    2014-05-26     Kailahun Kissi Teng 
- 7     7    50 F     confirmed 2014-05-21    2014-05-26     Kailahun Kissi Teng 
- 8     8     8 F     confirmed 2014-05-22    2014-05-27     Kailahun Kissi Teng 
- 9     9    54 F     confirmed 2014-05-22    2014-05-27     Kailahun Kissi Teng 
-10    10    57 F     confirmed 2014-05-22    2014-05-27     Kailahun Kissi Teng 
+ 4     4    15 F     confirmed 2014-05-21    2014-05-26     Kailahun Kissi Teng
+ 5     5    19 F     confirmed 2014-05-21    2014-05-26     Kailahun Kissi Teng
+ 6     6    55 F     confirmed 2014-05-21    2014-05-26     Kailahun Kissi Teng
+ 7     7    50 F     confirmed 2014-05-21    2014-05-26     Kailahun Kissi Teng
+ 8     8     8 F     confirmed 2014-05-22    2014-05-27     Kailahun Kissi Teng
+ 9     9    54 F     confirmed 2014-05-22    2014-05-27     Kailahun Kissi Teng
+10    10    57 F     confirmed 2014-05-22    2014-05-27     Kailahun Kissi Teng
 # ℹ 11,893 more rows</code></pre>
 </div>
 </div>
@@ -1470,7 +1470,7 @@ distribución correspondiente.</p>
 <button class="accordion-button hint-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHint4" aria-expanded="false" aria-controls="collapseHint4">
   <h4 class="accordion-header" id="headingHint4"> Give me a hint </h4>
 </button>
-<div id="collapseHint4" class="accordion-collapse collapse" aria-labelledby="headingHint4" data-bs-parent="#accordionHint4">
+<div id="collapseHint4" class="accordion-collapse collapse" data-bs-parent="#accordionHint4" aria-labelledby="headingHint4">
 <div class="accordion-body">
 <p><strong>¿Cómo reorganizar mis datos de entrada?</strong></p>
 <p>Reorganizar los datos de entrada para el análisis de datos puede
@@ -1495,7 +1495,7 @@ de datos de <code>{incidence2}</code></a> del paquete
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution10" aria-expanded="false" aria-controls="collapseSolution10">
   <h4 class="accordion-header" id="headingSolution10"> Show me the solution </h4>
 </button>
-<div id="collapseSolution10" class="accordion-collapse collapse" aria-labelledby="headingSolution10" data-bs-parent="#accordionSolution10">
+<div id="collapseSolution10" class="accordion-collapse collapse" data-bs-parent="#accordionSolution10" aria-labelledby="headingSolution10">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb35">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1525,18 +1525,18 @@ de datos de <code>{incidence2}</code></a> del paquete
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code># A tibble: 162 × 6
-   dt_onset   dt_report  dt_start_exp dt_end_exp dt_diag    dt_death  
-   &lt;date&gt;     &lt;date&gt;     &lt;date&gt;       &lt;date&gt;     &lt;date&gt;     &lt;date&gt;    
- 1 2015-05-11 2015-05-19 2015-04-18   2015-05-04 2015-05-20 NA        
- 2 2015-05-18 2015-05-20 2015-05-15   2015-05-20 2015-05-20 NA        
+   dt_onset   dt_report  dt_start_exp dt_end_exp dt_diag    dt_death
+   &lt;date&gt;     &lt;date&gt;     &lt;date&gt;       &lt;date&gt;     &lt;date&gt;     &lt;date&gt;
+ 1 2015-05-11 2015-05-19 2015-04-18   2015-05-04 2015-05-20 NA
+ 2 2015-05-18 2015-05-20 2015-05-15   2015-05-20 2015-05-20 NA
  3 2015-05-20 2015-05-20 2015-05-16   2015-05-16 2015-05-21 2015-06-04
- 4 2015-05-25 2015-05-26 2015-05-16   2015-05-20 2015-05-26 NA        
- 5 2015-05-25 2015-05-27 2015-05-17   2015-05-17 2015-05-26 NA        
+ 4 2015-05-25 2015-05-26 2015-05-16   2015-05-20 2015-05-26 NA
+ 5 2015-05-25 2015-05-27 2015-05-17   2015-05-17 2015-05-26 NA
  6 2015-05-24 2015-05-28 2015-05-15   2015-05-17 2015-05-28 2015-06-01
- 7 2015-05-21 2015-05-28 2015-05-16   2015-05-17 2015-05-28 NA        
- 8 2015-05-26 2015-05-29 2015-05-15   2015-05-15 2015-05-29 NA        
- 9 NA         2015-05-29 2015-05-15   2015-05-17 2015-05-29 NA        
-10 2015-05-21 2015-05-29 2015-05-16   2015-05-16 2015-05-29 NA        
+ 7 2015-05-21 2015-05-28 2015-05-16   2015-05-17 2015-05-28 NA
+ 8 2015-05-26 2015-05-29 2015-05-15   2015-05-15 2015-05-29 NA
+ 9 NA         2015-05-29 2015-05-15   2015-05-17 2015-05-29 NA
+10 2015-05-21 2015-05-29 2015-05-16   2015-05-16 2015-05-29 NA
 # ℹ 152 more rows</code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb37">
@@ -1669,7 +1669,7 @@ una TL ajustada al retraso temporal estratificada por países.</p>
 <button class="accordion-button hint-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHint5" aria-expanded="false" aria-controls="collapseHint5">
   <h4 class="accordion-header" id="headingHint5"> Give me a hint </h4>
 </button>
-<div id="collapseHint5" class="accordion-collapse collapse" aria-labelledby="headingHint5" data-bs-parent="#accordionHint5">
+<div id="collapseHint5" class="accordion-collapse collapse" data-bs-parent="#accordionHint5" aria-labelledby="headingHint5">
 <div class="accordion-body">
 <p>Una forma de hacer un <em>análisis estratificado</em> es aplicar un
 modelo a datos anidados. Esta <a href="https://tidyr.tidyverse.org/articles/nest.html#nested-data-and-models" class="external-link">viñeta
@@ -1686,7 +1686,7 @@ modelo.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution11" aria-expanded="false" aria-controls="collapseSolution11">
   <h4 class="accordion-header" id="headingSolution11"> Show me the solution </h4>
 </button>
-<div id="collapseSolution11" class="accordion-collapse collapse" aria-labelledby="headingSolution11" data-bs-parent="#accordionSolution11">
+<div id="collapseSolution11" class="accordion-collapse collapse" data-bs-parent="#accordionSolution11" aria-labelledby="headingSolution11">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb43">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1749,14 +1749,14 @@ $ deaths  &lt;dbl&gt; 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0
  8 Iran           &lt;tibble&gt;            0.0191       0.0191        0.0192
  9 Italy          &lt;tibble&gt;            0.0075       0.0075        0.0075
 10 Mexico         &lt;tibble&gt;            0.0461       0.046         0.0462
-11 Peru           &lt;tibble&gt;            0.0318       0.0151        0.202 
+11 Peru           &lt;tibble&gt;            0.0318       0.0151        0.202
 12 Poland         &lt;tibble&gt;            0.0186       0.0186        0.0187
 13 Russia         &lt;tibble&gt;            0.0182       0.0182        0.0182
 14 South Africa   &lt;tibble&gt;            0.0254       0.0253        0.0255
 15 Spain          &lt;tibble&gt;            0.0087       0.0087        0.0087
-16 Turkey         &lt;tibble&gt;            0.006        0.006         0.006 
+16 Turkey         &lt;tibble&gt;            0.006        0.006         0.006
 17 Ukraine        &lt;tibble&gt;            0.0204       0.0203        0.0205
-18 United Kingdom &lt;tibble&gt;            0.009        0.009         0.009 
+18 United Kingdom &lt;tibble&gt;            0.009        0.009         0.009
 19 United States  &lt;tibble&gt;            0.0111       0.0111        0.0111</code></pre>
 </div>
 <p>¡Estupendo! Ahora puedes utilizar un código similar para cualquier
@@ -1773,8 +1773,8 @@ paquete <a href="https://github.com/epiverse-trace/cfr" class="external-link">cf
 </div>
 </div>
 </div>
-</section><section id="apéndice"><h2 class="section-heading">Apéndice<a class="anchor" aria-label="anchor" href="#ap%C3%A9ndice"></a>
-</h2>
+</section><section><h2 class="section-heading" id="apéndice">Apéndice<a class="anchor" aria-label="anchor" href="#ap%C3%A9ndice"></a>
+<a class="anchor" aria-label="anchor" href="#ap%C3%A9ndice"></a></h2>
 <hr class="half-width"><p>El paquete <a href="https://github.com/epiverse-trace/cfr" class="external-link">cfr</a> tiene una función llamada
 <code>cfr_time_varying()</code> con una funcionalidad distinta de
 <code>cfr_rolling()</code>.</p>
@@ -1855,7 +1855,7 @@ analogía:</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution12" aria-expanded="false" aria-controls="collapseSolution12">
   <h4 class="accordion-header" id="headingSolution12"> Riesgo de mortalidad por infección y hospitalización </h4>
 </button>
-<div id="collapseSolution12" class="accordion-collapse collapse" aria-labelledby="headingSolution12" data-bs-parent="#accordionSolution12">
+<div id="collapseSolution12" class="accordion-collapse collapse" data-bs-parent="#accordionSolution12" aria-labelledby="headingSolution12">
 <div class="accordion-body">
 <p>Si para la una <em>Tasa de letalidad</em> (TL o CFR en inglés),
 exigimos:</p>
@@ -1883,7 +1883,7 @@ muerte.</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution13" aria-expanded="false" aria-controls="collapseSolution13">
   <h4 class="accordion-header" id="headingSolution13"> Fuentes de datos para más medidas de gravedad </h4>
 </button>
-<div id="collapseSolution13" class="accordion-collapse collapse" aria-labelledby="headingSolution13" data-bs-parent="#accordionSolution13">
+<div id="collapseSolution13" class="accordion-collapse collapse" data-bs-parent="#accordionSolution13" aria-labelledby="headingSolution13">
 <div class="accordion-body">
 <p><a href="https://www.nature.com/articles/s41467-020-19238-2/figures/1" class="external-link">Yang
 et al., 2020</a> resume diferentes definiciones y fuentes de datos:</p>
@@ -1941,9 +1941,9 @@ distribución de retrasos correspondiente.</p></li>
 </ul></div>
 </div>
 </div>
-<!-- 
+<!--
 Place links that you need to refer to multiple times across pages here. Delete
-any links that you are not going to use. 
+any links that you are not going to use.
  -->
 </section></div> <!-- / div.lesson-content -->
     </main><!-- / main#main-content.main-content --><nav class="bottom-pagination mx-md-4" aria-label="Previous and Next Chapter"><div class="d-block d-sm-block d-md-none">
@@ -1957,7 +1957,7 @@ any links that you are not going to use.
           Previous: Crear una previsión
         </a>
         <a class="chapter-link float-end" href="../instructor/superspreading-estimate.html" rel="next">
-          Next: Account for... 
+          Next: Account for...
           <i aria-hidden="true" class="small-arrow" data-feather="arrow-right"></i>
         </a>
       </div>
@@ -1968,18 +1968,18 @@ any links that you are not going to use.
       		<footer class="row footer mx-md-3"><hr><div class="col-md-6">
         <p>This lesson is subject to the <a href="CODE_OF_CONDUCT.html">Code of Conduct</a></p>
         <p>
-        
+
         <a href="https://github.com/epiverse-trace/tutorials-middle/edit/main/episodes/severity-static.Rmd" class="external-link">Edit on GitHub</a>
-        
+
 	
         | <a href="https://github.com/epiverse-trace/tutorials-middle/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a>
         | <a href="https://github.com/epiverse-trace/tutorials-middle/" class="external-link">Source</a></p>
 				<p><a href="https://github.com/epiverse-trace/tutorials-middle/blob/main/CITATION" class="external-link">Cite</a> | <a href="mailto:andree.valle-campos@lshtm.ac.uk">Contact</a> | <a href="https://carpentries.org/about/" class="external-link">About</a></p>
 			</div>
 			<div class="col-md-6">
-        
+
         <p>Materials licensed under <a href="LICENSE.html">CC-BY 4.0</a> by the authors</p>
-        
+
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
         <p>Built with <a href="https://github.com/epiverse-trace/sandpaper/tree/patch-renv-github-bug" class="external-link">sandpaper (0.16.5)</a>, <a href="https://github.com/carpentries/pegboard/tree/main" class="external-link">pegboard (0.7.6)</a>, and <a href="https://github.com/epiverse-trace/varnish/tree/epiversetheme" class="external-link">varnish (1.0.2)</a></p>
 			</div>
@@ -2003,8 +2003,8 @@ any links that you are not going to use.
   "url": "https://epiverse-trace.github.io/tutorials-middle/instructor/severity-static.html",
   "identifier": "https://epiverse-trace.github.io/tutorials-middle/instructor/severity-static.html",
   "dateCreated": "2024-07-05",
-  "dateModified": "2024-07-05",
-  "datePublished": "2024-07-05"
+  "dateModified": "2024-07-09",
+  "datePublished": "2024-07-09"
 }
 
   </script><script>
