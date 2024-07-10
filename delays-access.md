@@ -525,7 +525,6 @@ Seguimos obteniendo más de un parámetro epidemiológico. Podemos establecer el
 epiparameter::epidist_db(
   disease = "covid",
   epi_dist = "serial",
-  author = "Hiroshi",
   single_epidist = TRUE
 )
 ```
@@ -574,7 +573,6 @@ covid_serialint <-
   epiparameter::epidist_db(
     disease = "covid",
     epi_dist = "serial",
-    author = "Nishiura",
     single_epidist = TRUE
   )
 ```

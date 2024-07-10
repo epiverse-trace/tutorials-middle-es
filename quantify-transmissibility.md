@@ -207,7 +207,7 @@ El número de retrasos y su tipo son una entrada flexible que depende de los dat
 
 La distribución del periodo de incubación de muchas enfermedades suele obtenerse de la bibliografía. El paquete `{epiparameter}` contiene una biblioteca de parámetros epidemiológicos de distintas enfermedades obtenidos de la literatura.
 
-Especificamos una distribución gamma (fija) con media $\mu = 4$ y desviación típica $\sigma= 2$ (forma = $4$, escala = $1$) mediante la función `Gamma()` de la siguiente manera:
+Especificamos una distribución gamma (fija) con media $\mu = 4$ y desviación estándar $\sigma= 2$ (forma = $4$, escala = $1$) mediante la función `Gamma()` de la siguiente manera:
 
 
 ``` r
@@ -244,15 +244,15 @@ Para todos los tipos de retraso, tendremos que utilizar distribuciones sólo par
 
 #### Incluyendo la incertidumbre de distribución
 
-Para especificar una distribución **variable**, incluimos la incertidumbre en torno a la media $\mu$ y la desviación típica $\sigma$ de nuestra distribución gamma. Si nuestra distribución del periodo de incubación tiene una media $\mu$ y una desviación típica $\sigma$ entonces suponemos que la media ($\mu$) sigue una distribución Normal con desviación típica $\sigma_{\mu}$:
+Para especificar una distribución **variable**, incluimos la incertidumbre en torno a la media $\mu$ y la desviación estándar $\sigma$ de nuestra distribución gamma. Si nuestra distribución del periodo de incubación tiene una media $\mu$ y una desviación estándar $\sigma$ entonces suponemos que la media ($\mu$) sigue una distribución Normal con desviación estándar $\sigma_{\mu}$:
 
 $$\mbox{Normal}(\mu,\sigma_{\mu}^2)$$
 
-y una desviación típica ($\sigma$) sigue una distribución Normal con desviación típica $\sigma_{\sigma}$:
+y una desviación estándar ($\sigma$) sigue una distribución Normal con desviación estándar $\sigma_{\sigma}$:
 
 $$\mbox{Normal}(\sigma,\sigma_{\sigma}^2).$$
 
-Lo especificamos utilizando `Normal()` para cada argumento: la media ($\mu=4$ con $\sigma_{\mu}=0.5$) y la desviación típica ($\sigma=2$ con $\sigma_{\sigma}=0.5$).
+Lo especificamos utilizando `Normal()` para cada argumento: la media ($\mu=4$ con $\sigma_{\mu}=0.5$) y la desviación estándar ($\sigma=2$ con $\sigma_{\sigma}=0.5$).
 
 
 ``` r
@@ -285,10 +285,12 @@ incubation_period_variable
 
 Tras el periodo de incubación, habrá un retraso adicional desde el inicio de los síntomas hasta la notificación del caso: el retraso de notificación. Podemos especificarlo como una distribución fija o variable, o estimar una distribución a partir de los datos.
 
-Al especificar una distribución, es útil visualizar la densidad de probabilidad para ver el pico y la dispersión de la distribución, en este caso utilizaremos una *log normal* logarítmica normal. Podemos utilizar las funciones `convert_to_logmean()` y `convert_to_logsd()` para convertir la media y la desviación típica de una distribución normal en las de una distribución logarítmica normal.
+Al especificar una distribución, es útil visualizar la densidad de probabilidad para ver el pico y la dispersión de la distribución, en este caso utilizaremos una *log normal* logarítmica normal. 
+<!-- Podemos utilizar las funciones `convert_to_logmean()` y `convert_to_logsd()` para convertir la media y la desviación estándar de una distribución normal en las de una distribución logarítmica normal. -->
 
-Si queremos suponer que la media del retraso en la notificación es de 2 días (con una desviación típica de 1 día), escribimos:
+Si queremos suponer que la media del retraso en la notificación es de 2 días (con una desviación estándar de 1 día), escribimos:
 
+<!--
 
 ``` r
 # obtener logmean a partir de la media y sd
@@ -297,6 +299,19 @@ log_mean <- EpiNow2::convert_to_logmean(mean = 2, sd = 1)
 # obtener logsd a partir de la media y sd
 log_sd <- EpiNow2::convert_to_logsd(mean = 2, sd = 1)
 ```
+-->
+
+Utilizando la media y la desviación estándar de la distribución log normal, podemos especificar una distribución fija o variable utilizando `LogNormal()` como antes:
+
+
+``` r
+reporting_delay_variable <- EpiNow2::LogNormal(
+  mean = EpiNow2::Normal(mean = 2, sd = 0.5),
+  sd = EpiNow2::Normal(mean = 1, sd = 0.5),
+  max = 10
+)
+```
+
 
 :::::::::::::::::::::: spoiler
 
@@ -314,6 +329,23 @@ epiparameter::epidist(
   disease = "covid",
   epi_dist = "reporting delay", # retraso del reporte
   prob_distribution = "lnorm",
+  summary_stats = epiparameter::create_epidist_summary_stats(
+    mean = 2,
+    sd = 1
+  )
+) %>%
+  plot()
+```
+
+<img src="fig/quantify-transmissibility-rendered-unnamed-chunk-10-1.png" style="display: block; margin: auto;" />
+
+<!--
+
+``` r
+epiparameter::epidist(
+  disease = "covid",
+  epi_dist = "reporting delay", # retraso del reporte
+  prob_distribution = "lnorm",
   prob_distribution_params = c(
     meanlog = log_mean,
     sdlog = log_sd
@@ -322,20 +354,10 @@ epiparameter::epidist(
   plot()
 ```
 
-<img src="fig/quantify-transmissibility-rendered-unnamed-chunk-9-1.png" style="display: block; margin: auto;" />
+<img src="fig/quantify-transmissibility-rendered-unnamed-chunk-11-1.png" style="display: block; margin: auto;" />
+-->
 
 ::::::::::::::::::::::
-
-Utilizando la media y la desviación típica de la distribución log normal, podemos especificar una distribución fija o variable utilizando `LogNormal()` como antes:
-
-
-``` r
-reporting_delay_variable <- EpiNow2::LogNormal(
-  meanlog = EpiNow2::Normal(mean = log_mean, sd = 0.5),
-  sdlog = EpiNow2::Normal(mean = log_sd, sd = 0.5),
-  max = 10
-)
-```
 
 Podemos trazar distribuciones simples y combinadas generadas por `{EpiNow2}` utilizando `plot()`. Combinemos en un gráfico el retraso desde la infección hasta la notificación, que incluye el periodo de incubación y el retraso en la notificación:
 
@@ -344,7 +366,7 @@ Podemos trazar distribuciones simples y combinadas generadas por `{EpiNow2}` uti
 plot(incubation_period_variable + reporting_delay_variable)
 ```
 
-<img src="fig/quantify-transmissibility-rendered-unnamed-chunk-11-1.png" style="display: block; margin: auto;" />
+<img src="fig/quantify-transmissibility-rendered-unnamed-chunk-12-1.png" style="display: block; margin: auto;" />
 
 :::::::::::::::::: callout
 
@@ -365,7 +387,7 @@ reporting_delay <- EpiNow2::estimate_delay(
 
 #### Tiempo de generación
 
-También debemos especificar una distribución para el tiempo de generación. Aquí utilizaremos una distribución log normal con media 3.6 y desviación típica 3.1 ([Ganyani et al. 2020](https://doi.org/10.2807/1560-7917.ES.2020.25.17.2000257)).
+También debemos especificar una distribución para el tiempo de generación. Aquí utilizaremos una distribución log normal con media 3.6 y desviación estándar 3.1 ([Ganyani et al. 2020](https://doi.org/10.2807/1560-7917.ES.2020.25.17.2000257)).
 
 
 ``` r
@@ -381,7 +403,7 @@ generation_time_variable <- EpiNow2::LogNormal(
 La función `epinow()` es una envoltura de la función `estimate_infections()` utilizada para estimar los casos por fecha de infección. La distribución del tiempo de generación y las distribuciones del retraso deben pasarse utilizando las funciones ` generation_time_opts()` y `delay_opts()` respectivamente.
 
 Hay muchas otras entradas que se pueden pasar a `epinow()` ver `?EpiNow2::epinow()` para más detalles.
-Una entrada opcional es especificar una *log normal* para el número de reproducción efectivo $R_t$ al inicio del brote. Especificamos una media de 2 días y una desviación típica de 2 días como argumentos de `prior` dentro de `rt_opts()`:
+Una entrada opcional es especificar una *log normal* para el número de reproducción efectivo $R_t$ al inicio del brote. Especificamos una media de 2 días y una desviación estándar de 2 días como argumentos de `prior` dentro de `rt_opts()`:
 
 
 ``` r
@@ -420,8 +442,8 @@ generation_time_fixed <- EpiNow2::LogNormal(
 )
 
 reporting_delay_fixed <- EpiNow2::LogNormal(
-  mean = log_mean,
-  sd = log_sd,
+  mean = 2,
+  sd = 1,
   max = 10
 )
 ```
@@ -450,10 +472,10 @@ estimates <- EpiNow2::epinow(
 ```
 
 ``` output
-WARN [2024-07-06 07:22:55] epinow: There were 1 divergent transitions after warmup. See
+WARN [2024-07-10 13:32:03] epinow: There were 1 divergent transitions after warmup. See
 https://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup
 to find out why this is a problem and how to eliminate them. - 
-WARN [2024-07-06 07:22:55] epinow: Examine the pairs() plot to diagnose sampling problems
+WARN [2024-07-10 13:32:03] epinow: Examine the pairs() plot to diagnose sampling problems
  - 
 ```
 
@@ -510,7 +532,7 @@ Podemos extraer y visualizar estimaciones del número de reproducción efectivo 
 estimates$plots$R
 ```
 
-<img src="fig/quantify-transmissibility-rendered-unnamed-chunk-19-1.png" style="display: block; margin: auto;" />
+<img src="fig/quantify-transmissibility-rendered-unnamed-chunk-20-1.png" style="display: block; margin: auto;" />
 
 La incertidumbre de las estimaciones aumenta con el tiempo. Esto se debe a que las estimaciones se basan en datos del pasado, dentro de los periodos de retraso. Esta diferencia de incertidumbre se clasifica en **Estimación** (verde) utiliza todos los datos y **Estimación basada en datos parciales** (naranja) estimaciones que se basan en menos datos (porque es más probable que las infecciones que se produjeron en su momento no se hayan observado todavía), por este motivo, tienen intervalos cada vez más amplios hacia la fecha del último punto de datos. Por último, el **Pronóstico** (morado) es una proyección a futuro.
 
@@ -521,7 +543,7 @@ También podemos visualizar la estimación de la tasa de crecimiento a lo largo 
 estimates$plots$growth_rate
 ```
 
-<img src="fig/quantify-transmissibility-rendered-unnamed-chunk-20-1.png" style="display: block; margin: auto;" />
+<img src="fig/quantify-transmissibility-rendered-unnamed-chunk-21-1.png" style="display: block; margin: auto;" />
 
 Para extraer un resumen de las métricas clave de transmisión en la *última fecha* de los datos:
 
@@ -531,24 +553,24 @@ summary(estimates)
 ```
 
 ``` output
-                            measure                estimate
-                             <char>                  <char>
-1:           New infections per day    6879 (3638 -- 12241)
-2: Expected change in daily reports       Likely decreasing
-3:       Effective reproduction no.      0.88 (0.59 -- 1.3)
-4:                   Rate of growth -0.041 (-0.18 -- 0.099)
-5:     Doubling/halving time (days)         -17 (7 -- -3.9)
+                            measure               estimate
+                             <char>                 <char>
+1:           New infections per day   6164 (2854 -- 13890)
+2: Expected change in daily reports      Likely decreasing
+3:       Effective reproduction no.     0.84 (0.52 -- 1.3)
+4:                   Rate of growth -0.052 (-0.21 -- 0.12)
+5:     Doubling/halving time (days)      -13 (5.8 -- -3.2)
 ```
 
 Como estas estimaciones se basan en datos parciales, tienen un amplio intervalo de incertidumbre.
 
 - Del resumen de nuestro análisis se desprende que el cambio esperado en los casos diarios es de  con la estimación de nuevos casos confirmados .
 
-- El número de reproducción efectivo $R_t$ estimado (en la última fecha de los datos) es 0.88 (0.59 -- 1.3).
+- El número de reproducción efectivo $R_t$ estimado (en la última fecha de los datos) es 0.84 (0.52 -- 1.3).
 
-- La tasa de crecimiento exponencial del número de casos es -0.041 (-0.18 -- 0.099).
+- La tasa de crecimiento exponencial del número de casos es -0.052 (-0.21 -- 0.12).
 
-- El tiempo de duplicación (el tiempo que tarda en duplicarse el número de casos) es -17 (7 -- -3.9).
+- El tiempo de duplicación (el tiempo que tarda en duplicarse el número de casos) es -13 (5.8 -- -3.2).
 
 ::::::::::::::::::::::::::::::::::::: callout
 
@@ -641,17 +663,17 @@ estimates_regional <- EpiNow2::regional_epinow(
 ```
 
 ``` output
-INFO [2024-07-06 07:23:00] Producing following optional outputs: regions, summary, samples, plots, latest
-INFO [2024-07-06 07:23:00] Reporting estimates using data up to: 2020-04-28
-INFO [2024-07-06 07:23:00] No target directory specified so returning output
-INFO [2024-07-06 07:23:00] Producing estimates for: East Midlands, East of England, England, London, North East, North West, Northern Ireland, Scotland, South East, South West, Wales, West Midlands, Yorkshire and The Humber
-INFO [2024-07-06 07:23:00] Regions excluded: none
-INFO [2024-07-06 08:20:36] Completed regional estimates
-INFO [2024-07-06 08:20:36] Regions with estimates: 13
-INFO [2024-07-06 08:20:36] Regions with runtime errors: 0
-INFO [2024-07-06 08:20:36] Producing summary
-INFO [2024-07-06 08:20:36] No summary directory specified so returning summary output
-INFO [2024-07-06 08:20:36] No target directory specified so returning timings
+INFO [2024-07-10 13:32:09] Producing following optional outputs: regions, summary, samples, plots, latest
+INFO [2024-07-10 13:32:09] Reporting estimates using data up to: 2020-04-28
+INFO [2024-07-10 13:32:09] No target directory specified so returning output
+INFO [2024-07-10 13:32:09] Producing estimates for: East Midlands, East of England, England, London, North East, North West, Northern Ireland, Scotland, South East, South West, Wales, West Midlands, Yorkshire and The Humber
+INFO [2024-07-10 13:32:09] Regions excluded: none
+INFO [2024-07-10 14:28:38] Completed regional estimates
+INFO [2024-07-10 14:28:38] Regions with estimates: 13
+INFO [2024-07-10 14:28:38] Regions with runtime errors: 0
+INFO [2024-07-10 14:28:38] Producing summary
+INFO [2024-07-10 14:28:38] No summary directory specified so returning summary output
+INFO [2024-07-10 14:28:38] No target directory specified so returning timings
 ```
 
 <!-- ```{r, mensaje = FALSE,aviso=FALSE, eval = TRUE,echo=FALSE} -->
@@ -686,56 +708,56 @@ estimates_regional$summary$summarised_results$table
 ``` output
                       Region New infections per day
                       <char>                 <char>
- 1:            East Midlands       332 (206 -- 533)
- 2:          East of England       496 (311 -- 770)
- 3:                  England    3315 (2061 -- 5299)
- 4:                   London       305 (199 -- 454)
- 5:               North East       250 (140 -- 421)
- 6:               North West       541 (315 -- 865)
- 7:         Northern Ireland          42 (20 -- 85)
- 8:                 Scotland       279 (144 -- 565)
- 9:               South East       589 (362 -- 948)
-10:               South West       426 (301 -- 589)
-11:                    Wales         94 (61 -- 136)
-12:            West Midlands       237 (129 -- 432)
-13: Yorkshire and The Humber       459 (279 -- 724)
+ 1:            East Midlands       347 (185 -- 621)
+ 2:          East of England       495 (270 -- 877)
+ 3:                  England    3164 (1660 -- 5854)
+ 4:                   London       289 (164 -- 485)
+ 5:               North East       244 (114 -- 478)
+ 6:               North West       501 (258 -- 876)
+ 7:         Northern Ireland         37 (16 -- 100)
+ 8:                 Scotland       274 (105 -- 731)
+ 9:               South East      574 (295 -- 1072)
+10:               South West       467 (305 -- 732)
+11:                    Wales         82 (48 -- 134)
+12:            West Midlands        201 (84 -- 465)
+13: Yorkshire and The Humber       445 (228 -- 776)
     Expected change in daily reports Effective reproduction no.
                               <fctr>                     <char>
- 1:                Likely increasing          1.1 (0.82 -- 1.4)
- 2:                           Stable            1 (0.77 -- 1.3)
- 3:                Likely decreasing         0.89 (0.65 -- 1.2)
- 4:                Likely decreasing          0.9 (0.69 -- 1.1)
- 5:                Likely decreasing         0.93 (0.65 -- 1.2)
- 6:                Likely decreasing         0.88 (0.63 -- 1.1)
- 7:                Likely decreasing         0.76 (0.49 -- 1.2)
- 8:                Likely decreasing         0.93 (0.62 -- 1.4)
- 9:                           Stable         0.98 (0.72 -- 1.3)
-10:                       Increasing             1.3 (1 -- 1.5)
-11:                       Decreasing         0.71 (0.55 -- 0.9)
-12:                Likely decreasing            0.7 (0.46 -- 1)
-13:                Likely decreasing          0.96 (0.7 -- 1.2)
+ 1:                Likely increasing          1.1 (0.79 -- 1.4)
+ 2:                           Stable            1 (0.72 -- 1.3)
+ 3:                Likely decreasing         0.88 (0.59 -- 1.2)
+ 4:                Likely decreasing         0.89 (0.64 -- 1.2)
+ 5:                Likely decreasing          0.92 (0.6 -- 1.3)
+ 6:                Likely decreasing         0.86 (0.57 -- 1.2)
+ 7:                Likely decreasing         0.75 (0.45 -- 1.3)
+ 8:                           Stable         0.94 (0.53 -- 1.7)
+ 9:                           Stable         0.98 (0.65 -- 1.4)
+10:                       Increasing             1.3 (1 -- 1.6)
+11:                       Decreasing        0.69 (0.51 -- 0.93)
+12:                Likely decreasing         0.67 (0.38 -- 1.1)
+13:                Likely decreasing         0.93 (0.64 -- 1.3)
               Rate of growth Doubling/halving time (days)
                       <char>                       <char>
- 1:   0.021 (-0.082 -- 0.11)             33 (6.2 -- -8.4)
- 2:  0.0012 (-0.11 -- 0.097)            590 (7.1 -- -6.2)
- 3:  -0.042 (-0.15 -- 0.067)             -17 (10 -- -4.5)
- 4:  -0.029 (-0.12 -- 0.054)             -24 (13 -- -5.7)
- 5:   -0.024 (-0.15 -- 0.09)            -28 (7.7 -- -4.6)
- 6:   -0.04 (-0.15 -- 0.056)             -17 (12 -- -4.6)
- 7:   -0.068 (-0.21 -- 0.09)            -10 (7.7 -- -3.3)
- 8:   -0.017 (-0.16 -- 0.15)            -41 (4.7 -- -4.4)
- 9:   -0.0087 (-0.12 -- 0.1)            -79 (6.7 -- -5.8)
-10:  0.076 (-0.0084 -- 0.15)             9.1 (4.6 -- -83)
-11: -0.09 (-0.17 -- -0.0083)             -7.7 (-83 -- -4)
-12:   -0.11 (-0.25 -- 0.035)            -6.3 (20 -- -2.8)
-13:  -0.023 (-0.14 -- 0.079)              -30 (8.8 -- -5)
+ 1:   0.023 (-0.092 -- 0.13)             31 (5.5 -- -7.5)
+ 2:  -0.0036 (-0.13 -- 0.11)           -190 (6.6 -- -5.5)
+ 3:  -0.044 (-0.18 -- 0.078)            -16 (8.9 -- -3.9)
+ 4:  -0.032 (-0.14 -- 0.067)               -22 (10 -- -5)
+ 5:   -0.024 (-0.17 -- 0.11)            -29 (6.3 -- -4.2)
+ 6:  -0.046 (-0.18 -- 0.059)             -15 (12 -- -3.9)
+ 7:   -0.074 (-0.23 -- 0.14)             -9.4 (5.1 -- -3)
+ 8:     -0.013 (-0.2 -- 0.2)            -53 (3.4 -- -3.5)
+ 9:  -0.0085 (-0.15 -- 0.12)            -81 (5.8 -- -4.7)
+10:   0.077 (-0.013 -- 0.17)                 9 (4 -- -51)
+11: -0.096 (-0.19 -- 0.0046)           -7.2 (150 -- -3.7)
+12:    -0.11 (-0.28 -- 0.06)            -6.1 (12 -- -2.5)
+13:  -0.028 (-0.16 -- 0.088)            -25 (7.9 -- -4.4)
 ```
 
 ``` r
 estimates_regional$summary$plots$R
 ```
 
-<img src="fig/quantify-transmissibility-rendered-unnamed-chunk-24-1.png" style="display: block; margin: auto;" />
+<img src="fig/quantify-transmissibility-rendered-unnamed-chunk-25-1.png" style="display: block; margin: auto;" />
 
 <!-- :::::::::::::::::::::::::: testimonial -->
 
