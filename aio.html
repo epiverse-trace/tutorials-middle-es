@@ -292,7 +292,7 @@
         
 <section id="aio-delays-access"><p>Content from <a href="delays-access.html">Acceder a las distribuciones de retrasos epidemiológicos</a></p>
 <hr>
-<p>Última actualización: 2024-07-06 |
+<p>Última actualización: 2024-07-10 |
 
         <a href="https://github.com/epiverse-trace/tutorials-middle/edit/main/episodes/delays-access.Rmd" class="external-link">Mejora esta página <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -1126,7 +1126,6 @@ para obtener sólo uno:</p>
 <code class="sourceCode R"><span><span class="fu">epiparameter</span><span class="fu">::</span><span class="fu">epidist_db</span><span class="op">(</span></span>
 <span>  disease <span class="op">=</span> <span class="st">"covid"</span>,</span>
 <span>  epi_dist <span class="op">=</span> <span class="st">"serial"</span>,</span>
-<span>  author <span class="op">=</span> <span class="st">"Hiroshi"</span>,</span>
 <span>  single_epidist <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span></code></pre>
 </div>
@@ -1188,7 +1187,6 @@ objeto<code>covid_serialint</code>.</p>
 <span>  <span class="fu">epiparameter</span><span class="fu">::</span><span class="fu">epidist_db</span><span class="op">(</span></span>
 <span>    disease <span class="op">=</span> <span class="st">"covid"</span>,</span>
 <span>    epi_dist <span class="op">=</span> <span class="st">"serial"</span>,</span>
-<span>    author <span class="op">=</span> <span class="st">"Nishiura"</span>,</span>
 <span>    single_epidist <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span>  <span class="op">)</span></span></code></pre>
 </div>
@@ -1642,7 +1640,7 @@ any links that you are not going to use.
  -->
 </section></section><section id="aio-quantify-transmissibility"><p>Content from <a href="quantify-transmissibility.html">Cuantificar la transmisión</a></p>
 <hr>
-<p>Última actualización: 2024-07-06 |
+<p>Última actualización: 2024-07-10 |
 
         <a href="https://github.com/epiverse-trace/tutorials-middle/edit/main/episodes/quantify-transmissibility.Rmd" class="external-link">Mejora esta página <i aria-hidden="true" data-feather="edit"></i></a></p>
 <div class="text-end">
@@ -1985,7 +1983,7 @@ suele obtenerse de la bibliografía. El paquete
 <code>{epiparameter}</code> contiene una biblioteca de parámetros
 epidemiológicos de distintas enfermedades obtenidos de la
 literatura.</p>
-<p>Especificamos una distribución gamma (fija) con media <span class="math inline">\(\mu = 4\)</span> y desviación típica <span class="math inline">\(\sigma= 2\)</span> (forma = <span class="math inline">\(4\)</span>, escala = <span class="math inline">\(1\)</span>) mediante la función
+<p>Especificamos una distribución gamma (fija) con media <span class="math inline">\(\mu = 4\)</span> y desviación estándar <span class="math inline">\(\sigma= 2\)</span> (forma = <span class="math inline">\(4\)</span>, escala = <span class="math inline">\(1\)</span>) mediante la función
 <code>Gamma()</code> de la siguiente manera:</p>
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -2035,18 +2033,18 @@ retrasos de días negativos en nuestro análisis!</p>
 <h4 id="incluyendo-la-incertidumbre-de-distribución">Incluyendo la incertidumbre de distribución<a class="anchor" aria-label="anchor" href="#incluyendo-la-incertidumbre-de-distribuci%C3%B3n"></a>
 </h4>
 <p>Para especificar una distribución <strong>variable</strong>,
-incluimos la incertidumbre en torno a la media <span class="math inline">\(\mu\)</span> y la desviación típica <span class="math inline">\(\sigma\)</span> de nuestra distribución gamma. Si
-nuestra distribución del periodo de incubación tiene una media <span class="math inline">\(\mu\)</span> y una desviación típica <span class="math inline">\(\sigma\)</span> entonces suponemos que la media
+incluimos la incertidumbre en torno a la media <span class="math inline">\(\mu\)</span> y la desviación estándar <span class="math inline">\(\sigma\)</span> de nuestra distribución gamma. Si
+nuestra distribución del periodo de incubación tiene una media <span class="math inline">\(\mu\)</span> y una desviación estándar <span class="math inline">\(\sigma\)</span> entonces suponemos que la media
 (<span class="math inline">\(\mu\)</span>) sigue una distribución Normal
-con desviación típica <span class="math inline">\(\sigma_{\mu}\)</span>:</p>
+con desviación estándar <span class="math inline">\(\sigma_{\mu}\)</span>:</p>
 <p><span class="math display">\[\mbox{Normal}(\mu,\sigma_{\mu}^2)\]</span></p>
-<p>y una desviación típica (<span class="math inline">\(\sigma\)</span>)
-sigue una distribución Normal con desviación típica <span class="math inline">\(\sigma_{\sigma}\)</span>:</p>
+<p>y una desviación estándar (<span class="math inline">\(\sigma\)</span>) sigue una distribución Normal con
+desviación estándar <span class="math inline">\(\sigma_{\sigma}\)</span>:</p>
 <p><span class="math display">\[\mbox{Normal}(\sigma,\sigma_{\sigma}^2).\]</span></p>
 <p>Lo especificamos utilizando <code>Normal()</code> para cada
 argumento: la media (<span class="math inline">\(\mu=4\)</span> con
 <span class="math inline">\(\sigma_{\mu}=0.5\)</span>) y la desviación
-típica (<span class="math inline">\(\sigma=2\)</span> con <span class="math inline">\(\sigma_{\sigma}=0.5\)</span>).</p>
+estándar (<span class="math inline">\(\sigma=2\)</span> con <span class="math inline">\(\sigma_{\sigma}=0.5\)</span>).</p>
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -2087,21 +2085,31 @@ variable, o estimar una distribución a partir de los datos.</p>
 <p>Al especificar una distribución, es útil visualizar la densidad de
 probabilidad para ver el pico y la dispersión de la distribución, en
 este caso utilizaremos una <em>log normal</em> logarítmica normal.
-Podemos utilizar las funciones <code>convert_to_logmean()</code> y
-<code>convert_to_logsd()</code> para convertir la media y la desviación
-típica de una distribución normal en las de una distribución logarítmica
-normal.</p>
+<!-- Podemos utilizar las funciones `convert_to_logmean()` y `convert_to_logsd()` para convertir la media y la desviación estándar de una distribución normal en las de una distribución logarítmica normal. --></p>
 <p>Si queremos suponer que la media del retraso en la notificación es de
-2 días (con una desviación típica de 1 día), escribimos:</p>
+2 días (con una desviación estándar de 1 día), escribimos:</p>
+<!--
+
+``` r
+# obtener logmean a partir de la media y sd
+log_mean <- EpiNow2::convert_to_logmean(mean = 2, sd = 1)
+
+# obtener logsd a partir de la media y sd
+log_sd <- EpiNow2::convert_to_logsd(mean = 2, sd = 1)
+```
+-->
+<p>Utilizando la media y la desviación estándar de la distribución log
+normal, podemos especificar una distribución fija o variable utilizando
+<code>LogNormal()</code> como antes:</p>
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># obtener logmean a partir de la media y sd</span></span>
-<span><span class="va">log_mean</span> <span class="op">&lt;-</span> <span class="fu">EpiNow2</span><span class="fu">::</span><span class="fu">convert_to_logmean</span><span class="op">(</span>mean <span class="op">=</span> <span class="fl">2</span>, sd <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># obtener logsd a partir de la media y sd</span></span>
-<span><span class="va">log_sd</span> <span class="op">&lt;-</span> <span class="fu">EpiNow2</span><span class="fu">::</span><span class="fu">convert_to_logsd</span><span class="op">(</span>mean <span class="op">=</span> <span class="fl">2</span>, sd <span class="op">=</span> <span class="fl">1</span><span class="op">)</span></span></code></pre>
+<code class="sourceCode R"><span><span class="va">reporting_delay_variable</span> <span class="op">&lt;-</span> <span class="fu">EpiNow2</span><span class="fu">::</span><span class="fu">LogNormal</span><span class="op">(</span></span>
+<span>  mean <span class="op">=</span> <span class="fu">EpiNow2</span><span class="fu">::</span><span class="fu">Normal</span><span class="op">(</span>mean <span class="op">=</span> <span class="fl">2</span>, sd <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span>,</span>
+<span>  sd <span class="op">=</span> <span class="fu">EpiNow2</span><span class="fu">::</span><span class="fu">Normal</span><span class="op">(</span>mean <span class="op">=</span> <span class="fl">1</span>, sd <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span>,</span>
+<span>  max <span class="op">=</span> <span class="fl">10</span></span>
+<span><span class="op">)</span></span></code></pre>
 </div>
 <div id="accordionSpoiler2" class="accordion spoiler-accordion accordion-flush">
 <div class="accordion-item">
@@ -2127,42 +2135,45 @@ siguiente aspecto:</p>
 <span>  disease <span class="op">=</span> <span class="st">"covid"</span>,</span>
 <span>  epi_dist <span class="op">=</span> <span class="st">"reporting delay"</span>, <span class="co"># retraso del reporte</span></span>
 <span>  prob_distribution <span class="op">=</span> <span class="st">"lnorm"</span>,</span>
-<span>  prob_distribution_params <span class="op">=</span> <span class="fu">c</span><span class="op">(</span></span>
-<span>    meanlog <span class="op">=</span> <span class="va">log_mean</span>,</span>
-<span>    sdlog <span class="op">=</span> <span class="va">log_sd</span></span>
+<span>  summary_stats <span class="op">=</span> <span class="fu">epiparameter</span><span class="fu">::</span><span class="fu">create_epidist_summary_stats</span><span class="op">(</span></span>
+<span>    mean <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>    sd <span class="op">=</span> <span class="fl">1</span></span>
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu">plot</span><span class="op">(</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="fig/quantify-transmissibility-rendered-unnamed-chunk-9-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure>
+<figure><img src="fig/quantify-transmissibility-rendered-unnamed-chunk-10-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><!--
+
+``` r
+epiparameter::epidist(
+  disease = "covid",
+  epi_dist = "reporting delay", # retraso del reporte
+  prob_distribution = "lnorm",
+  prob_distribution_params = c(
+    meanlog = log_mean,
+    sdlog = log_sd
+  )
+) %>%
+  plot()
+```
+
+<img src="fig/quantify-transmissibility-rendered-unnamed-chunk-11-1.png" style="display: block; margin: auto;" />
+-->
 </div>
 </div>
 </div>
-</div>
-<p>Utilizando la media y la desviación típica de la distribución log
-normal, podemos especificar una distribución fija o variable utilizando
-<code>LogNormal()</code> como antes:</p>
-<div class="codewrapper sourceCode" id="cb13">
-<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">reporting_delay_variable</span> <span class="op">&lt;-</span> <span class="fu">EpiNow2</span><span class="fu">::</span><span class="fu">LogNormal</span><span class="op">(</span></span>
-<span>  meanlog <span class="op">=</span> <span class="fu">EpiNow2</span><span class="fu">::</span><span class="fu">Normal</span><span class="op">(</span>mean <span class="op">=</span> <span class="va">log_mean</span>, sd <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span>,</span>
-<span>  sdlog <span class="op">=</span> <span class="fu">EpiNow2</span><span class="fu">::</span><span class="fu">Normal</span><span class="op">(</span>mean <span class="op">=</span> <span class="va">log_sd</span>, sd <span class="op">=</span> <span class="fl">0.5</span><span class="op">)</span>,</span>
-<span>  max <span class="op">=</span> <span class="fl">10</span></span>
-<span><span class="op">)</span></span></code></pre>
 </div>
 <p>Podemos trazar distribuciones simples y combinadas generadas por
 <a href="https://epiforecasts.io/EpiNow2/" class="external-link">EpiNow2</a> utilizando <code>plot()</code>. Combinemos en un
 gráfico el retraso desde la infección hasta la notificación, que incluye
 el periodo de incubación y el retraso en la notificación:</p>
-<div class="codewrapper sourceCode" id="cb14">
+<div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">plot</span><span class="op">(</span><span class="va">incubation_period_variable</span> <span class="op">+</span> <span class="va">reporting_delay_variable</span><span class="op">)</span></span></code></pre>
 </div>
-<figure><img src="fig/quantify-transmissibility-rendered-unnamed-chunk-11-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div id="callout5" class="callout">
+<figure><img src="fig/quantify-transmissibility-rendered-unnamed-chunk-12-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div id="callout5" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
@@ -2176,7 +2187,7 @@ de los síntomas y la notificación, podemos utilizar la función
 partir de un vector de retrasos. El siguiente código muestra cómo
 utilizar <code>estimate_delay()</code> con datos sintéticos de
 retrasos.</p>
-<div class="codewrapper sourceCode" id="cb15">
+<div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -2197,9 +2208,9 @@ retrasos.</p>
 </h4>
 <p>También debemos especificar una distribución para el tiempo de
 generación. Aquí utilizaremos una distribución log normal con media 3.6
-y desviación típica 3.1 (<a href="https://doi.org/10.2807/1560-7917.ES.2020.25.17.2000257" class="external-link">Ganyani
+y desviación estándar 3.1 (<a href="https://doi.org/10.2807/1560-7917.ES.2020.25.17.2000257" class="external-link">Ganyani
 et al. 2020</a>).</p>
-<div class="codewrapper sourceCode" id="cb16">
+<div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -2225,10 +2236,10 @@ respectivamente.</p>
 ver <code>?EpiNow2::epinow()</code> para más detalles. Una entrada
 opcional es especificar una <em>log normal</em> para el número de
 reproducción efectivo <span class="math inline">\(R_t\)</span> al inicio
-del brote. Especificamos una media de 2 días y una desviación típica de
-2 días como argumentos de <code>prior</code> dentro de
+del brote. Especificamos una media de 2 días y una desviación estándar
+de 2 días como argumentos de <code>prior</code> dentro de
 <code>rt_opts()</code>:</p>
-<div class="codewrapper sourceCode" id="cb17">
+<div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -2254,7 +2265,7 @@ a utilizar. Por defecto, se ejecutan 4 cadenas MCMC (ver
 <code>stan_opts()$chains</code>), por lo que podemos establecer un
 número igual de núcleos para que se utilicen en paralelo de la siguiente
 manera:</p>
-<div class="codewrapper sourceCode" id="cb18">
+<div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -2279,7 +2290,7 @@ utilizan distribuciones en lugar de <code>_variable</code>
 acelerar el tiempo de cálculo. En general, se recomienda utilizar
 distribuciones variables que tengan en cuenta la incertidumbre
 adicional.</p>
-<div class="codewrapper sourceCode" id="cb19">
+<div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -2291,8 +2302,8 @@ adicional.</p>
 <span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">reporting_delay_fixed</span> <span class="op">&lt;-</span> <span class="fu">EpiNow2</span><span class="fu">::</span><span class="fu">LogNormal</span><span class="op">(</span></span>
-<span>  mean <span class="op">=</span> <span class="va">log_mean</span>,</span>
-<span>  sd <span class="op">=</span> <span class="va">log_sd</span>,</span>
+<span>  mean <span class="op">=</span> <span class="fl">2</span>,</span>
+<span>  sd <span class="op">=</span> <span class="fl">1</span>,</span>
 <span>  max <span class="op">=</span> <span class="fl">10</span></span>
 <span><span class="op">)</span></span></code></pre>
 </div>
@@ -2302,14 +2313,14 @@ adicional.</p>
 <p>Ahora estás listo para ejecutar <code>EpiNow2::epinow()</code> para
 estimar el número de reproducción variable en el tiempo durante los
 primeros 90 días:</p>
-<div class="codewrapper sourceCode" id="cb20">
+<div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">reported_cases</span> <span class="op">&lt;-</span> <span class="va">cases</span> <span class="op">%&gt;%</span></span>
 <span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu">slice_head</span><span class="op">(</span>n <span class="op">=</span> <span class="fl">90</span><span class="op">)</span></span></code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb21">
+<div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -2326,10 +2337,10 @@ primeros 90 días:</p>
 <div class="codewrapper">
 <h3 class="code-label">SALIDA<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>WARN [2024-07-06 07:22:55] epinow: There were 1 divergent transitions after warmup. See
+<pre class="output" tabindex="0"><code>WARN [2024-07-10 13:32:03] epinow: There were 1 divergent transitions after warmup. See
 https://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup
 to find out why this is a problem and how to eliminate them. -
-WARN [2024-07-06 07:22:55] epinow: Examine the pairs() plot to diagnose sampling problems
+WARN [2024-07-10 13:32:03] epinow: Examine the pairs() plot to diagnose sampling problems
  - </code></pre>
 </div>
 <!-- ```{r, mensaje = FALSE,advertencia=FALSE, eval = TRUE, echo=FALSE} -->
@@ -2359,7 +2370,7 @@ Podemos especificar un número fijo de <code>samples = 1000</code> y
 <code>EpiNow2::epinow()</code>. Esperamos que esto lleve aproximadamente
 3 minutos.</p>
 <!-- Podemos establecer opcionalmente `stan = stan_opts(method = "vb")` para utilizar un método de muestreo aproximado. Esperamos que tarde menos de 1 minuto. -->
-<div class="codewrapper sourceCode" id="cb23">
+<div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -2382,13 +2393,13 @@ velocidad.</p>
 </h3>
 <p>Podemos extraer y visualizar estimaciones del número de reproducción
 efectivo a lo largo del tiempo:</p>
-<div class="codewrapper sourceCode" id="cb24">
+<div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">estimates</span><span class="op">$</span><span class="va">plots</span><span class="op">$</span><span class="va">R</span></span></code></pre>
 </div>
-<figure><img src="fig/quantify-transmissibility-rendered-unnamed-chunk-19-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>La incertidumbre de las estimaciones aumenta con el tiempo. Esto se
+<figure><img src="fig/quantify-transmissibility-rendered-unnamed-chunk-20-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>La incertidumbre de las estimaciones aumenta con el tiempo. Esto se
 debe a que las estimaciones se basan en datos del pasado, dentro de los
 periodos de retraso. Esta diferencia de incertidumbre se clasifica en
 <strong>Estimación</strong> (verde) utiliza todos los datos y
@@ -2400,15 +2411,15 @@ la fecha del último punto de datos. Por último, el
 <strong>Pronóstico</strong> (morado) es una proyección a futuro.</p>
 <p>También podemos visualizar la estimación de la tasa de crecimiento a
 lo largo del tiempo:</p>
-<div class="codewrapper sourceCode" id="cb25">
+<div class="codewrapper sourceCode" id="cb24">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">estimates</span><span class="op">$</span><span class="va">plots</span><span class="op">$</span><span class="va">growth_rate</span></span></code></pre>
 </div>
-<figure><img src="fig/quantify-transmissibility-rendered-unnamed-chunk-20-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Para extraer un resumen de las métricas clave de transmisión en la
+<figure><img src="fig/quantify-transmissibility-rendered-unnamed-chunk-21-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Para extraer un resumen de las métricas clave de transmisión en la
 <em>última fecha</em> de los datos:</p>
-<div class="codewrapper sourceCode" id="cb26">
+<div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -2417,13 +2428,13 @@ lo largo del tiempo:</p>
 <div class="codewrapper">
 <h3 class="code-label">SALIDA<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>                            measure                estimate
-                             &lt;char&gt;                  &lt;char&gt;
-1:           New infections per day    6879 (3638 -- 12241)
-2: Expected change in daily reports       Likely decreasing
-3:       Effective reproduction no.      0.88 (0.59 -- 1.3)
-4:                   Rate of growth -0.041 (-0.18 -- 0.099)
-5:     Doubling/halving time (days)         -17 (7 -- -3.9)</code></pre>
+<pre class="output" tabindex="0"><code>                            measure               estimate
+                             &lt;char&gt;                 &lt;char&gt;
+1:           New infections per day   6164 (2854 -- 13890)
+2: Expected change in daily reports      Likely decreasing
+3:       Effective reproduction no.     0.84 (0.52 -- 1.3)
+4:                   Rate of growth -0.052 (-0.21 -- 0.12)
+5:     Doubling/halving time (days)      -13 (5.8 -- -3.2)</code></pre>
 </div>
 <p>Como estas estimaciones se basan en datos parciales, tienen un amplio
 intervalo de incertidumbre.</p>
@@ -2432,11 +2443,11 @@ intervalo de incertidumbre.</p>
 esperado en los casos diarios es de con la estimación de nuevos casos
 confirmados .</p></li>
 <li><p>El número de reproducción efectivo <span class="math inline">\(R_t\)</span> estimado (en la última fecha de los
-datos) es 0.88 (0.59 – 1.3).</p></li>
-<li><p>La tasa de crecimiento exponencial del número de casos es -0.041
-(-0.18 – 0.099).</p></li>
+datos) es 0.84 (0.52 – 1.3).</p></li>
+<li><p>La tasa de crecimiento exponencial del número de casos es -0.052
+(-0.21 – 0.12).</p></li>
 <li><p>El tiempo de duplicación (el tiempo que tarda en duplicarse el
-número de casos) es -17 (7 – -3.9).</p></li>
+número de casos) es -13 (5.8 – -3.2).</p></li>
 </ul>
 <div id="expected-change-in-daily-cases" class="callout">
 <div class="callout-square">
@@ -2501,7 +2512,7 @@ datos para que tengan tres columnas:</p>
 <code>confirm</code>: número de casos confirmados para una región en
 una fecha determinada.</li>
 </ul>
-<div class="codewrapper sourceCode" id="cb28">
+<div class="codewrapper sourceCode" id="cb27">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -2555,7 +2566,7 @@ una fecha determinada.</li>
 <p>Para hallar las estimaciones regionales, utilizamos los mismos datos
 que <code>epinow()</code> para la función
 <code>regional_epinow()</code>:</p>
-<div class="codewrapper sourceCode" id="cb30">
+<div class="codewrapper sourceCode" id="cb29">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -2572,17 +2583,17 @@ que <code>epinow()</code> para la función
 <div class="codewrapper">
 <h3 class="code-label">SALIDA<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>INFO [2024-07-06 07:23:00] Producing following optional outputs: regions, summary, samples, plots, latest
-INFO [2024-07-06 07:23:00] Reporting estimates using data up to: 2020-04-28
-INFO [2024-07-06 07:23:00] No target directory specified so returning output
-INFO [2024-07-06 07:23:00] Producing estimates for: East Midlands, East of England, England, London, North East, North West, Northern Ireland, Scotland, South East, South West, Wales, West Midlands, Yorkshire and The Humber
-INFO [2024-07-06 07:23:00] Regions excluded: none
-INFO [2024-07-06 08:20:36] Completed regional estimates
-INFO [2024-07-06 08:20:36] Regions with estimates: 13
-INFO [2024-07-06 08:20:36] Regions with runtime errors: 0
-INFO [2024-07-06 08:20:36] Producing summary
-INFO [2024-07-06 08:20:36] No summary directory specified so returning summary output
-INFO [2024-07-06 08:20:36] No target directory specified so returning timings</code></pre>
+<pre class="output" tabindex="0"><code>INFO [2024-07-10 13:32:09] Producing following optional outputs: regions, summary, samples, plots, latest
+INFO [2024-07-10 13:32:09] Reporting estimates using data up to: 2020-04-28
+INFO [2024-07-10 13:32:09] No target directory specified so returning output
+INFO [2024-07-10 13:32:09] Producing estimates for: East Midlands, East of England, England, London, North East, North West, Northern Ireland, Scotland, South East, South West, Wales, West Midlands, Yorkshire and The Humber
+INFO [2024-07-10 13:32:09] Regions excluded: none
+INFO [2024-07-10 14:28:38] Completed regional estimates
+INFO [2024-07-10 14:28:38] Regions with estimates: 13
+INFO [2024-07-10 14:28:38] Regions with runtime errors: 0
+INFO [2024-07-10 14:28:38] Producing summary
+INFO [2024-07-10 14:28:38] No summary directory specified so returning summary output
+INFO [2024-07-10 14:28:38] No target directory specified so returning timings</code></pre>
 </div>
 <!-- ```{r, mensaje = FALSE,aviso=FALSE, eval = TRUE,echo=FALSE} -->
 <!-- estima_regional <- EpiNow2::regional_epinow( -->
@@ -2596,7 +2607,7 @@ INFO [2024-07-06 08:20:36] No target directory specified so returning timings</c
 <!-- stan = EpiNow2::stan_opts(method = "vb") -->
 <!-- ) -->
 <!-- ``` -->
-<div class="codewrapper sourceCode" id="cb32">
+<div class="codewrapper sourceCode" id="cb31">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -2607,57 +2618,57 @@ INFO [2024-07-06 08:20:36] No target directory specified so returning timings</c
 </h3>
 <pre class="output" tabindex="0"><code>                      Region New infections per day
                       &lt;char&gt;                 &lt;char&gt;
- 1:            East Midlands       332 (206 -- 533)
- 2:          East of England       496 (311 -- 770)
- 3:                  England    3315 (2061 -- 5299)
- 4:                   London       305 (199 -- 454)
- 5:               North East       250 (140 -- 421)
- 6:               North West       541 (315 -- 865)
- 7:         Northern Ireland          42 (20 -- 85)
- 8:                 Scotland       279 (144 -- 565)
- 9:               South East       589 (362 -- 948)
-10:               South West       426 (301 -- 589)
-11:                    Wales         94 (61 -- 136)
-12:            West Midlands       237 (129 -- 432)
-13: Yorkshire and The Humber       459 (279 -- 724)
+ 1:            East Midlands       347 (185 -- 621)
+ 2:          East of England       495 (270 -- 877)
+ 3:                  England    3164 (1660 -- 5854)
+ 4:                   London       289 (164 -- 485)
+ 5:               North East       244 (114 -- 478)
+ 6:               North West       501 (258 -- 876)
+ 7:         Northern Ireland         37 (16 -- 100)
+ 8:                 Scotland       274 (105 -- 731)
+ 9:               South East      574 (295 -- 1072)
+10:               South West       467 (305 -- 732)
+11:                    Wales         82 (48 -- 134)
+12:            West Midlands        201 (84 -- 465)
+13: Yorkshire and The Humber       445 (228 -- 776)
     Expected change in daily reports Effective reproduction no.
                               &lt;fctr&gt;                     &lt;char&gt;
- 1:                Likely increasing          1.1 (0.82 -- 1.4)
- 2:                           Stable            1 (0.77 -- 1.3)
- 3:                Likely decreasing         0.89 (0.65 -- 1.2)
- 4:                Likely decreasing          0.9 (0.69 -- 1.1)
- 5:                Likely decreasing         0.93 (0.65 -- 1.2)
- 6:                Likely decreasing         0.88 (0.63 -- 1.1)
- 7:                Likely decreasing         0.76 (0.49 -- 1.2)
- 8:                Likely decreasing         0.93 (0.62 -- 1.4)
- 9:                           Stable         0.98 (0.72 -- 1.3)
-10:                       Increasing             1.3 (1 -- 1.5)
-11:                       Decreasing         0.71 (0.55 -- 0.9)
-12:                Likely decreasing            0.7 (0.46 -- 1)
-13:                Likely decreasing          0.96 (0.7 -- 1.2)
+ 1:                Likely increasing          1.1 (0.79 -- 1.4)
+ 2:                           Stable            1 (0.72 -- 1.3)
+ 3:                Likely decreasing         0.88 (0.59 -- 1.2)
+ 4:                Likely decreasing         0.89 (0.64 -- 1.2)
+ 5:                Likely decreasing          0.92 (0.6 -- 1.3)
+ 6:                Likely decreasing         0.86 (0.57 -- 1.2)
+ 7:                Likely decreasing         0.75 (0.45 -- 1.3)
+ 8:                           Stable         0.94 (0.53 -- 1.7)
+ 9:                           Stable         0.98 (0.65 -- 1.4)
+10:                       Increasing             1.3 (1 -- 1.6)
+11:                       Decreasing        0.69 (0.51 -- 0.93)
+12:                Likely decreasing         0.67 (0.38 -- 1.1)
+13:                Likely decreasing         0.93 (0.64 -- 1.3)
               Rate of growth Doubling/halving time (days)
                       &lt;char&gt;                       &lt;char&gt;
- 1:   0.021 (-0.082 -- 0.11)             33 (6.2 -- -8.4)
- 2:  0.0012 (-0.11 -- 0.097)            590 (7.1 -- -6.2)
- 3:  -0.042 (-0.15 -- 0.067)             -17 (10 -- -4.5)
- 4:  -0.029 (-0.12 -- 0.054)             -24 (13 -- -5.7)
- 5:   -0.024 (-0.15 -- 0.09)            -28 (7.7 -- -4.6)
- 6:   -0.04 (-0.15 -- 0.056)             -17 (12 -- -4.6)
- 7:   -0.068 (-0.21 -- 0.09)            -10 (7.7 -- -3.3)
- 8:   -0.017 (-0.16 -- 0.15)            -41 (4.7 -- -4.4)
- 9:   -0.0087 (-0.12 -- 0.1)            -79 (6.7 -- -5.8)
-10:  0.076 (-0.0084 -- 0.15)             9.1 (4.6 -- -83)
-11: -0.09 (-0.17 -- -0.0083)             -7.7 (-83 -- -4)
-12:   -0.11 (-0.25 -- 0.035)            -6.3 (20 -- -2.8)
-13:  -0.023 (-0.14 -- 0.079)              -30 (8.8 -- -5)</code></pre>
+ 1:   0.023 (-0.092 -- 0.13)             31 (5.5 -- -7.5)
+ 2:  -0.0036 (-0.13 -- 0.11)           -190 (6.6 -- -5.5)
+ 3:  -0.044 (-0.18 -- 0.078)            -16 (8.9 -- -3.9)
+ 4:  -0.032 (-0.14 -- 0.067)               -22 (10 -- -5)
+ 5:   -0.024 (-0.17 -- 0.11)            -29 (6.3 -- -4.2)
+ 6:  -0.046 (-0.18 -- 0.059)             -15 (12 -- -3.9)
+ 7:   -0.074 (-0.23 -- 0.14)             -9.4 (5.1 -- -3)
+ 8:     -0.013 (-0.2 -- 0.2)            -53 (3.4 -- -3.5)
+ 9:  -0.0085 (-0.15 -- 0.12)            -81 (5.8 -- -4.7)
+10:   0.077 (-0.013 -- 0.17)                 9 (4 -- -51)
+11: -0.096 (-0.19 -- 0.0046)           -7.2 (150 -- -3.7)
+12:    -0.11 (-0.28 -- 0.06)            -6.1 (12 -- -2.5)
+13:  -0.028 (-0.16 -- 0.088)            -25 (7.9 -- -4.4)</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb34">
+<div class="codewrapper sourceCode" id="cb33">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">estimates_regional</span><span class="op">$</span><span class="va">summary</span><span class="op">$</span><span class="va">plots</span><span class="op">$</span><span class="va">R</span></span></code></pre>
 </div>
-<figure><img src="fig/quantify-transmissibility-rendered-unnamed-chunk-24-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><!-- :::::::::::::::::::::::::: testimonial --><!-- ### el paquete i2extras --><!-- :::::::::::::::::::::::::: --></section><section><h2 class="section-heading" id="resumen">Resumen<a class="anchor" aria-label="anclaje" href="#resumen"></a>
+<figure><img src="fig/quantify-transmissibility-rendered-unnamed-chunk-25-1.png" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><!-- :::::::::::::::::::::::::: testimonial --><!-- ### el paquete i2extras --><!-- :::::::::::::::::::::::::: --></section><section><h2 class="section-heading" id="resumen">Resumen<a class="anchor" aria-label="anclaje" href="#resumen"></a>
 <a class="anchor" aria-label="anchor" href="#resumen"></a>
 </h2>
 <hr class="half-width">
@@ -2952,7 +2963,7 @@ inicio en comparación con los de 2 días antes del inicio?</li>
 <button class="accordion-button hint-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHint1" aria-expanded="false" aria-controls="collapseHint1">
   <h4 class="accordion-header" id="headingHint1"> Dar una pista </h4>
 </button>
-<div id="collapseHint1" class="accordion-collapse collapse" data-bs-parent="#accordionHint1" aria-labelledby="headingHint1">
+<div id="collapseHint1" class="accordion-collapse collapse" aria-labelledby="headingHint1" data-bs-parent="#accordionHint1">
 <div class="accordion-body">
 <p>En la Figura 5 de las <a href="https://sakai.unc.edu/access/content/group/3d1eb92e-7848-4f55-90c3-7c72a54e7e43/public/docs/lectures/lecture13.htm#probfunc" class="external-link">funciones
 de probabilidad de R para la distribución normal</a>, la sección
@@ -2967,7 +2978,7 @@ para el valor del cuantil en <code>x = 2</code>.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1"> Mostrar la solución </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3014,7 +3025,7 @@ incluir el 76,2% de los contactos retrospectivos.</p></li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> ¿Y si </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <p>intercambiamos la pregunta entre días y probabilidad acumulada a:</p>
 <ul>
@@ -3138,7 +3149,7 @@ síntomas de COVID-19 después de la infección los presentan?</li>
 <button class="accordion-button hint-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHint2" aria-expanded="false" aria-controls="collapseHint2">
   <h4 class="accordion-header" id="headingHint2"> Dar una pista </h4>
 </button>
-<div id="collapseHint2" class="accordion-collapse collapse" data-bs-parent="#accordionHint2" aria-labelledby="headingHint2">
+<div id="collapseHint2" class="accordion-collapse collapse" aria-labelledby="headingHint2" data-bs-parent="#accordionHint2">
 <div class="accordion-body">
 <p>¿Qué distribución del retraso mide el tiempo entre la infección y la
 aparición de los síntomas?</p>
@@ -3173,7 +3184,7 @@ aparición de los síntomas?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution3" aria-expanded="false" aria-controls="collapseSolution3">
   <h4 class="accordion-header" id="headingSolution3"> Mostrar la solución </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3223,7 +3234,7 @@ epidemiológicos?</em></p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution4" aria-expanded="false" aria-controls="collapseSolution4">
   <h4 class="accordion-header" id="headingSolution4"> ¿Cómo crear un gráfico de distribución? </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>A partir de un valor máximo con <code>quantile()</code> podemos crear
 una secuencia de valores de cuantiles como un vector numérico y calcular
@@ -3433,7 +3444,7 @@ argumento <code>delays</code> y la función auxiliar
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution5" aria-expanded="false" aria-controls="collapseSolution5">
   <h4 class="accordion-header" id="headingSolution5"> Mostrar la solución </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb35">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3614,7 +3625,7 @@ disponibles (por ejemplo, el periodo de incubación).</li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution6" aria-expanded="false" aria-controls="collapseSolution6">
   <h4 class="accordion-header" id="headingSolution6"> Mostrar la solución </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb38">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3729,7 +3740,7 @@ de probabilidad</a>.</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution7" aria-expanded="false" aria-controls="collapseSolution7">
   <h4 class="accordion-header" id="headingSolution7"> Mostrar la solución </h4>
 </button>
-<div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
+<div id="collapseSolution7" class="accordion-collapse collapse" aria-labelledby="headingSolution7" data-bs-parent="#accordionSolution7">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb42">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -5697,9 +5708,9 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://epiverse-trace.github.io/tutorials-middle/aio.html",
   "identifier": "https://epiverse-trace.github.io/tutorials-middle/aio.html",
-  "dateCreated": "2024-07-08",
-  "dateModified": "2024-07-09",
-  "datePublished": "2024-07-09"
+  "dateCreated": "2024-07-10",
+  "dateModified": "2024-07-10",
+  "datePublished": "2024-07-10"
 }
 
   </script><script>
