@@ -517,6 +517,22 @@ De nuevo, podemos usar <a href="https://devtools.r-lib.org/" class="external-lin
 <code class="sourceCode R"><span><span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="kw">require</span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span><span class="op">)</span> <span class="fu">install.packages</span><span class="op">(</span><span class="st">"devtools"</span><span class="op">)</span></span>
 <span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">find_rtools</span><span class="op">(</span><span class="op">)</span></span></code></pre>
 </div>
+<ol start="4" style="list-style-type: decimal"><li>Reintentar instalar {EpiNow2} usando {pak}:</li>
+</ol><div class="codewrapper sourceCode" id="cb5">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">pak</span><span class="fu">::</span><span class="fu">pkg_install</span><span class="op">(</span><span class="st">"EpiNow2"</span><span class="op">)</span></span></code></pre>
+</div>
+<p>Si persiste, intentar usando <code>install.packages()</code>:</p>
+<div class="codewrapper sourceCode" id="cb6">
+<h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">install.packages</span><span class="op">(</span><span class="st">"EpiNow2"</span>, repos <span class="op">=</span> <span class="fu">c</span><span class="op">(</span><span class="st">"https://epiforecasts.r-universe.dev"</span>, <span class="fu">getOption</span><span class="op">(</span><span class="st">"repos"</span><span class="op">)</span><span class="op">)</span><span class="op">)</span></span></code></pre>
+</div>
+<p>Si el error persiste, <a href="#sus-preguntas">póngase en contacto
+con nosotros</a>!</p>
 </div>
 </div>
 </div>
@@ -531,17 +547,17 @@ De nuevo, podemos usar <a href="https://devtools.r-lib.org/" class="external-lin
 </button>
 <div id="collapseSpoiler2" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler2" aria-labelledby="headingSpoiler2">
 <div class="accordion-body">
-<p>Si recibe un mensaje de error al instalar {superspreading},
-{epichains}, o {epiparameter}, pruebe este código alternativo:</p>
-<div class="codewrapper sourceCode" id="cb5">
+<p>Si recibe un mensaje de error al instalar {epiparameter},
+{epichains}, o {superspreading}, pruebe este código alternativo:</p>
+<div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># for superspreading</span></span>
-<span><span class="fu">install.packages</span><span class="op">(</span><span class="st">"superspreading"</span>, repos <span class="op">=</span> <span class="fu">c</span><span class="op">(</span><span class="st">"https://epiverse-trace.r-universe.dev"</span><span class="op">)</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># for epiparameter</span></span>
+<code class="sourceCode R"><span><span class="co"># for epiparameter</span></span>
 <span><span class="fu">install.packages</span><span class="op">(</span><span class="st">"epiparameter"</span>, repos <span class="op">=</span> <span class="fu">c</span><span class="op">(</span><span class="st">"https://epiverse-trace.r-universe.dev"</span><span class="op">)</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co"># for superspreading</span></span>
+<span><span class="fu">install.packages</span><span class="op">(</span><span class="st">"superspreading"</span>, repos <span class="op">=</span> <span class="fu">c</span><span class="op">(</span><span class="st">"https://epiverse-trace.r-universe.dev"</span><span class="op">)</span><span class="op">)</span></span>
 <span></span>
 <span><span class="co"># for epichains</span></span>
 <span><span class="fu">install.packages</span><span class="op">(</span><span class="st">"epichains"</span>, repos <span class="op">=</span> <span class="fu">c</span><span class="op">(</span><span class="st">"https://epiverse-trace.r-universe.dev"</span><span class="op">)</span><span class="op">)</span></span></code></pre>
@@ -564,7 +580,7 @@ De nuevo, podemos usar <a href="https://devtools.r-lib.org/" class="external-lin
 <code>Personal access token (PAT)</code>, puede que necesites <a href="https://epiverse-trace.github.io/git-rstudio-basics/02-setup.html#set-up-your-github-token" class="external-link">configurar
 tu token de GitHub</a>.</p>
 <p>Primero, instala estos paquetes de R:</p>
-<div class="codewrapper sourceCode" id="cb6">
+<div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -578,7 +594,7 @@ tu token de GitHub</a>.</p>
 </div>
 <p>A continuación, sigue estos tres pasos para <a href="https://epiverse-trace.github.io/git-rstudio-basics/02-setup.html#set-up-your-github-token" class="external-link">configurar
 tu token de GitHub (lee esta guía paso a paso)</a>:</p>
-<div class="codewrapper sourceCode" id="cb7">
+<div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -592,14 +608,14 @@ tu token de GitHub (lee esta guía paso a paso)</a>:</p>
 <span><span class="fu">usethis</span><span class="fu">::</span><span class="fu">git_sitrep</span><span class="op">(</span><span class="op">)</span></span></code></pre>
 </div>
 <p>Intente de nuevo instalar {epichains}:</p>
-<div class="codewrapper sourceCode" id="cb8">
+<div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw">if</span><span class="op">(</span><span class="op">!</span><span class="kw">require</span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span><span class="op">)</span> <span class="fu">install.packages</span><span class="op">(</span><span class="st">"remotes"</span><span class="op">)</span></span>
 <span><span class="fu">remotes</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"epiverse-trace/epichains"</span><span class="op">)</span></span></code></pre>
 </div>
-<p>Si el error persiste, <a href="#your-questions">póngase en contacto
+<p>Si el error persiste, <a href="#sus-preguntas">póngase en contacto
 con nosotros</a>!</p>
 </div>
 </div>
@@ -611,7 +627,7 @@ nuevas versiones traen mejoras y correcciones de errores
 importantes.</p>
 <p>Cuando la instalación haya terminado, puedes intentar cargar los
 paquetes pegando el siguiente código en la consola:</p>
-<div class="codewrapper sourceCode" id="cb9">
+<div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -622,7 +638,7 @@ paquetes pegando el siguiente código en la consola:</p>
 <span><span class="kw">library</span><span class="op">(</span><span class="va">incidence2</span><span class="op">)</span></span>
 <span><span class="kw">library</span><span class="op">(</span><span class="va">tidyverse</span><span class="op">)</span></span></code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb10">
+<div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -651,7 +667,7 @@ library(tidyverse)
 -->
 <p>Si NO aparece un error del tipo
 <code>no hay ningún paquete llamado '...'</code>, ¡puede continuar! Si
-es así, <a href="#your-questions">contacte con nosotros</a>!</p>
+es así, <a href="#sus-preguntas">contacte con nosotros</a>!</p>
 </div>
 </section><section><h2 class="section-heading" id="conjuntos-de-datos">Conjuntos de datos<a class="anchor" aria-label="anclaje" href="#conjuntos-de-datos"></a>
 <a class="anchor" aria-label="anchor" href="#conjuntos-de-datos"></a></h2>
