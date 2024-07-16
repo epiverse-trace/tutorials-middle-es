@@ -292,7 +292,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Crear una previsión a corto plazo</h1>
-        <p>Last updated on 2024-07-09 |
+        <p>Last updated on 2024-07-16 |
 
         <a href="https://github.com/epiverse-trace/tutorials-middle/edit/main/episodes/create-forecast.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 
@@ -479,10 +479,10 @@ obtener los datos de entrada, los retardos y las priors:</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>WARN [2024-07-09 02:00:07] epinow: There were 2 divergent transitions after warmup. See
+<pre class="output" tabindex="0"><code>WARN [2024-07-16 01:56:50] epinow: There were 5 divergent transitions after warmup. See
 https://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup
 to find out why this is a problem and how to eliminate them. -
-WARN [2024-07-09 02:00:07] epinow: Examine the pairs() plot to diagnose sampling problems
+WARN [2024-07-16 01:56:50] epinow: Examine the pairs() plot to diagnose sampling problems
  - </code></pre>
 </div>
 <div id="no-esperes-a-que-se-complete" class="callout">
@@ -568,10 +568,10 @@ de entrada de <code>epinow()</code>:</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>WARN [2024-07-09 02:08:29] epinow: There were 2 divergent transitions after warmup. See
+<pre class="output" tabindex="0"><code>WARN [2024-07-16 02:05:02] epinow: There were 7 divergent transitions after warmup. See
 https://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup
 to find out why this is a problem and how to eliminate them. -
-WARN [2024-07-09 02:08:29] epinow: Examine the pairs() plot to diagnose sampling problems
+WARN [2024-07-16 02:05:02] epinow: Examine the pairs() plot to diagnose sampling problems
  - </code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb9">
@@ -585,11 +585,11 @@ WARN [2024-07-09 02:08:29] epinow: Examine the pairs() plot to diagnose sampling
 </h3>
 <pre class="output" tabindex="0"><code>                            measure              estimate
                              &lt;char&gt;                &lt;char&gt;
-1:           New infections per day 17315 (9418 -- 30565)
+1:           New infections per day 17053 (9122 -- 31180)
 2: Expected change in daily reports     Likely decreasing
-3:       Effective reproduction no.    0.89 (0.59 -- 1.3)
-4:                   Rate of growth -0.039 (-0.18 -- 0.1)
-5:     Doubling/halving time (days)     -18 (6.9 -- -3.8)</code></pre>
+3:       Effective reproduction no.    0.87 (0.58 -- 1.3)
+4:                   Rate of growth -0.045 (-0.19 -- 0.1)
+5:     Doubling/halving time (days)     -15 (6.7 -- -3.7)</code></pre>
 </div>
 <p>Las estimaciones de las medidas de transmisión, como el número de
 reproducción efectivo y la tasa de crecimiento, son similares (o tienen
@@ -704,6 +704,13 @@ detalles sobre estas opciones.</p>
 <span>  delays <span class="op">=</span> <span class="fu">EpiNow2</span><span class="fu">::</span><span class="fu">delay_opts</span><span class="op">(</span><span class="va">delay_report_to_death</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre>
 </div>
+<div class="codewrapper">
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="output" tabindex="0"><code>WARN [2024-07-16 02:05:10] estimate_secondary (chain: 1): Bulk Effective Samples Size (ESS) is too low, indicating posterior means and medians may be unreliable.
+Running the chains for more iterations may help. See
+https://mc-stan.org/misc/warnings.html#bulk-ess - </code></pre>
+</div>
 <div id="ten-cuidado-con-la-escala-de-tiempo" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
@@ -723,7 +730,7 @@ previsión del modelo.</p>
 <p>Trazamos el ajuste del modelo (cintas sombreadas) con las
 observaciones secundarias (diagrama de barras) y las observaciones
 primarias (línea de puntos) de la siguiente manera:</p>
-<div class="codewrapper sourceCode" id="cb13">
+<div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -736,7 +743,7 @@ para las fechas no utilizadas en el ajuste del modelo.</p>
 conocemos las muertes y los casos, por lo que creamos un marco de datos
 extrayendo los casos. Pero, en la práctica, se trataría de otro conjunto
 de datos formado sólo por los casos.</em></p>
-<div class="codewrapper sourceCode" id="cb14">
+<div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -747,7 +754,7 @@ de datos formado sólo por los casos.</em></p>
 </div>
 <p>Para pronosticar, utilizamos el ajuste del modelo
 <code>estimate_cases_to_deaths</code>:</p>
-<div class="codewrapper sourceCode" id="cb15">
+<div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -769,7 +776,7 @@ de datos formado sólo por los casos.</em></p>
 </button>
 <div id="collapseSpoiler1" class="accordion-collapse collapse" data-bs-parent="#accordionSpoiler1" aria-labelledby="headingSpoiler1">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb16">
+<div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -868,7 +875,7 @@ de incubación y el tiempo de generación.</p>
 la media y la desviación típica de la distribución log normal para el
 periodo de incubación y la distribución Gamma para el tiempo de
 generación.</p>
-<div class="codewrapper sourceCode" id="cb17">
+<div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -888,7 +895,7 @@ generación.</p>
 4 Ebola Vi… Ebola V… incubation peri… gamma             WHO E…  2015         957
 5 Ebola Vi… Ebola V… incubation peri… gamma             WHO E…  2015         792</code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb19">
+<div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -921,7 +928,7 @@ generación.</p>
 <p>Leemos los datos de entrada utilizando
 <code>readr::read_csv()</code>. Esta función reconoce que la columna
 <code>date</code> es una <code>&lt;date&gt;</code> vector de clase.</p>
-<div class="codewrapper sourceCode" id="cb20">
+<div class="codewrapper sourceCode" id="cb21">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -932,7 +939,7 @@ generación.</p>
 <span><span class="op">)</span></span></code></pre>
 </div>
 <p>Preprocesa y adapta los datos brutos para <a href="https://epiforecasts.io/EpiNow2/" class="external-link">EpiNow2</a>:</p>
-<div class="codewrapper sourceCode" id="cb21">
+<div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -971,7 +978,7 @@ generación.</p>
 </div>
 <p>Definimos un modelo de observación para escalar el número estimado y
 previsto de nuevas infecciones:</p>
-<div class="codewrapper sourceCode" id="cb23">
+<div class="codewrapper sourceCode" id="cb24">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -982,7 +989,7 @@ previsto de nuevas infecciones:</p>
 <p>Como queremos crear también una previsión a dos semanas,
 especificamos <code>horizon = 14</code> para prever 14 días en lugar de
 los 7 días por defecto.</p>
-<div class="codewrapper sourceCode" id="cb24">
+<div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -999,13 +1006,13 @@ los 7 días por defecto.</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>WARN [2024-07-09 02:10:50] epinow: There were 2 divergent transitions after warmup. See
+<pre class="output" tabindex="0"><code>WARN [2024-07-16 02:07:29] epinow: There were 2 divergent transitions after warmup. See
 https://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup
 to find out why this is a problem and how to eliminate them. -
-WARN [2024-07-09 02:10:50] epinow: Examine the pairs() plot to diagnose sampling problems
+WARN [2024-07-16 02:07:29] epinow: Examine the pairs() plot to diagnose sampling problems
  - </code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb26">
+<div class="codewrapper sourceCode" id="cb27">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1014,19 +1021,19 @@ WARN [2024-07-09 02:10:50] epinow: Examine the pairs() plot to diagnose sampling
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>                            measure              estimate
-                             &lt;char&gt;                &lt;char&gt;
-1:           New infections per day        84 (32 -- 201)
-2: Expected change in daily reports     Likely increasing
-3:       Effective reproduction no.     1.5 (0.77 -- 2.6)
-4:                   Rate of growth 0.035 (-0.039 -- 0.1)
-5:     Doubling/halving time (days)       20 (6.7 -- -18)</code></pre>
+<pre class="output" tabindex="0"><code>                            measure             estimate
+                             &lt;char&gt;               &lt;char&gt;
+1:           New infections per day       84 (35 -- 218)
+2: Expected change in daily reports    Likely increasing
+3:       Effective reproduction no.    1.5 (0.84 -- 2.7)
+4:                   Rate of growth 0.034 (-0.03 -- 0.1)
+5:     Doubling/halving time (days)      21 (6.6 -- -23)</code></pre>
 </div>
 <p>El número de reproducción efectivo <span class="math inline">\(R_t\)</span> estimado (en la última fecha de los
-datos) es 1.5 (0.77 – 2.6). La tasa de crecimiento exponencial del
-número de casos es 0.035 (-0.039 – 0.1).</p>
+datos) es 1.5 (0.84 – 2.7). La tasa de crecimiento exponencial del
+número de casos es 0.034 (-0.03 – 0.1).</p>
 <p>Visualiza las estimaciones:</p>
-<div class="codewrapper sourceCode" id="cb28">
+<div class="codewrapper sourceCode" id="cb29">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1050,7 +1057,7 @@ datos parciales, tiene una incertidumbre considerable.</p>
 <p>El número de reproducciones que se proyecta en el futuro puede
 cambiarse por una estimación menos reciente basada en más datos
 utilizando <code>rt_opts()</code>:</p>
-<div class="codewrapper sourceCode" id="cb29">
+<div class="codewrapper sourceCode" id="cb30">
 <h3 class="code-label">R<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="downlit sourceCode r">
@@ -1154,9 +1161,9 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://epiverse-trace.github.io/tutorials-middle/instructor/create-forecast.html",
   "identifier": "https://epiverse-trace.github.io/tutorials-middle/instructor/create-forecast.html",
-  "dateCreated": "2024-07-05",
-  "dateModified": "2024-07-09",
-  "datePublished": "2024-07-09"
+  "dateCreated": "2024-07-11",
+  "dateModified": "2024-07-16",
+  "datePublished": "2024-07-16"
 }
 
   </script><script>
