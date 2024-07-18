@@ -68,4 +68,4 @@ jobs:
         with:
           clean: false
           branch: gh-pages
-          folder: site
+          folder: site/docs
