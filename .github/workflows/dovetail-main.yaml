@@ -55,10 +55,14 @@ jobs:
         with:
           cache-version: ${{ secrets.CACHE_VERSION }}
 
+      - uses: actions/cache@v4
+        with:
+          path: site/built
+          key: md-es
+
       - name: "Build Site"
         run: |
           renv::install("joelnitta/dovetail")
-          reset <- "${{ github.event.inputs.reset }}" == "true"
           sandpaper::package_cache_trigger(TRUE)
           dovetail::render_trans_from_dir(lang = "es", preview = FALSE)
         shell: Rscript {0}
